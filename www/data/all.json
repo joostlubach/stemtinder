@@ -1,0 +1,1190 @@
+{
+  "parties": {
+    "50-plus": {
+      "name": "50Plus",
+      "long_name": "50Plus"
+    },
+    "50-plus": {
+      "name": "50Plus",
+      "long_name": "50Plus"
+    },
+    "cda": {
+      "name": "CDA",
+      "long_name": "Christen-Democratisch App\u00e8l"
+    },
+    "christen-unie-sgp": {
+      "name": "CU/SGP",
+      "long_name": "Christen Unie/Staatkundig Gereformeerde Partij"
+    },
+    "cu": {
+      "name": "CU",
+      "long_name": "Christen Unie"
+    },
+    "d66": {
+      "name": "D66",
+      "long_name": "Democraten \u201966"
+    },
+    "groenlinks": {
+      "name": "GroenLinks",
+      "long_name": "GroenLinks"
+    },
+    "hart-voor-holland": {
+      "name": "Hart voor Holland",
+      "long_name": "Hart voor Holland"
+    },
+    "jezus-leeft": {
+      "name": "JEZUS leeft",
+      "long_name": "JEZUS leeft"
+    },
+    "lokaal-belang-gelderland": {
+      "name": "Lokaal Belang Gelderland",
+      "long_name": "Lokaal Belang Gelderland"
+    },
+    "lokaal-brabant": {
+      "name": "Lokaal Brabant",
+      "long_name": "Lokaal Brabant"
+    },
+    "lokale-partijen-gelderland": {
+      "name": "Lokale Partijen Gelderland",
+      "long_name": "Lokale Partijen Gelderland"
+    },
+    "mens-en-spirit": {
+      "name": "MenS",
+      "long_name": "Partij voor Mens en Spirit"
+    },
+    "opa": {
+      "name": "OPA",
+      "long_name": "Ouderen Politiek Actief"
+    },
+    "ouderenpartij-nh": {
+      "name": "Ouderenpartij NH",
+      "long_name": "Ouderenpartij Noord-Holland"
+    },
+    "piratenpartij": {
+      "name": "Piratenpartij",
+      "long_name": "Piratenpartij"
+    },
+    "pvda": {
+      "name": "PvdA",
+      "long_name": "Partij van de Arbeid"
+    },
+    "pvdd": {
+      "name": "PvdD",
+      "long_name": "Partij voor de Dieren"
+    },
+    "pvv": {
+      "name": "PVV",
+      "long_name": "Partij voor de Vrijheid"
+    },
+    "sgp": {
+      "name": "SGP",
+      "long_name": "Staatkundig Gereformeerde Partij"
+    },
+    "sp": {
+      "name": "SP",
+      "long_name": "Socialistische Partij"
+    },
+    "vrijzinnige-partij": {
+      "name": "Vrijzinnige Partij",
+      "long_name": "Vrijzinnige Partij"
+    },
+    "vrouwenpartij": {
+      "name": "Vrouwenpartij",
+      "long_name": "Vrouwenpartij"
+    },
+    "vvd": {
+      "name": "VVD",
+      "long_name": "Volkspartij voor Vrijheid en Democratie"
+    }
+  },
+  "candidates": {
+    "Flevoland": [
+      {
+        "name": "Wout",
+        "age": null,
+        "party": "50-plus",
+        "image_url": "/data/kandidaten/Flevoland/50-plus/1. wout.jpg"
+      },
+      {
+        "name": "Gerben",
+        "age": null,
+        "party": "50-plus",
+        "image_url": "/data/kandidaten/Flevoland/50-plus/2. gerben.jpg"
+      },
+      {
+        "name": "Marianne",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Flevoland/cda/1. marianne.jpg"
+      },
+      {
+        "name": "Jan Nico",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Flevoland/cda/2. jan-nico.jpg"
+      },
+      {
+        "name": "Chris",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Flevoland/cda/3. chris.jpg"
+      },
+      {
+        "name": "Johan",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Flevoland/cda/5. johan.jpg"
+      },
+      {
+        "name": "Roelof",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Flevoland/cu/1. roelof.jpg"
+      },
+      {
+        "name": "Harold",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Flevoland/cu/2. harold.jpg"
+      },
+      {
+        "name": "Louwe",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Flevoland/cu/3. louwe.jpg"
+      },
+      {
+        "name": "Lloyd",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Flevoland/cu/4. lloyd.jpg"
+      },
+      {
+        "name": "Astrid",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Flevoland/cu/5. astrid.jpg"
+      },
+      {
+        "name": "Michiel",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Flevoland/d66/1. michiel.jpg"
+      },
+      {
+        "name": "Shasta",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Flevoland/d66/2. shasta.jpg"
+      },
+      {
+        "name": "Paul",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Flevoland/d66/3. paul.jpg"
+      },
+      {
+        "name": "Margriet",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Flevoland/d66/4. margriet.jpg"
+      },
+      {
+        "name": "Tiko",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Flevoland/d66/5. tiko.jpg"
+      },
+      {
+        "name": "Simon",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Flevoland/groenlinks/1. simon.jpg"
+      },
+      {
+        "name": "Judith",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Flevoland/groenlinks/2. judith.jpg"
+      },
+      {
+        "name": "Alida",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Flevoland/groenlinks/4. alida.jpg"
+      },
+      {
+        "name": "Laurens",
+        "age": null,
+        "party": "jezus-leeft",
+        "image_url": "/data/kandidaten/Flevoland/jezus-leeft/1. laurens.jpg"
+      },
+      {
+        "name": "Johan",
+        "age": null,
+        "party": "opa",
+        "image_url": "/data/kandidaten/Flevoland/opa/1. johan.jpg"
+      },
+      {
+        "name": "Peter",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Flevoland/pvda/1. peter.jpg"
+      },
+      {
+        "name": "Nora",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Flevoland/pvda/2. nora.jpg"
+      },
+      {
+        "name": "Willem",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Flevoland/pvda/3. willem.jpg"
+      },
+      {
+        "name": "Roy",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Flevoland/pvda/4. roy.jpg"
+      },
+      {
+        "name": "Jesse",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Flevoland/pvda/5. jesse.jpg"
+      },
+      {
+        "name": "Leonie",
+        "age": null,
+        "party": "pvdd",
+        "image_url": "/data/kandidaten/Flevoland/pvdd/1. leonie.jpg"
+      },
+      {
+        "name": "Melissa",
+        "age": null,
+        "party": "pvdd",
+        "image_url": "/data/kandidaten/Flevoland/pvdd/2. melissa.jpg"
+      },
+      {
+        "name": "Adri",
+        "age": null,
+        "party": "pvdd",
+        "image_url": "/data/kandidaten/Flevoland/pvdd/3. adri.jpg"
+      },
+      {
+        "name": "Chris",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Flevoland/pvv/1. chris.jpg"
+      },
+      {
+        "name": "Irene",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Flevoland/pvv/2. irene.jpg"
+      },
+      {
+        "name": "Willem",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Flevoland/pvv/3. willem.jpg"
+      },
+      {
+        "name": "Sjaak",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Flevoland/sgp/1. sjaak.jpg"
+      },
+      {
+        "name": "Jacob",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Flevoland/sgp/3. jacob.jpg"
+      },
+      {
+        "name": "Sjoerd",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Flevoland/sgp/5. sjoerd.jpg"
+      },
+      {
+        "name": "Arie",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Flevoland/sp/1. arie.jpg"
+      },
+      {
+        "name": "Symaiah",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Flevoland/sp/4. symaiah.jpg"
+      },
+      {
+        "name": "Tjitske",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Flevoland/sp/5. tjitske.jpg"
+      },
+      {
+        "name": "Jaap",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Flevoland/vvd/1. jaap.jpg"
+      },
+      {
+        "name": "Bert",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Flevoland/vvd/2. bert.jpg"
+      },
+      {
+        "name": "Janet",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Flevoland/vvd/3. janet.jpg"
+      },
+      {
+        "name": "Jan",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Flevoland/vvd/4. jan.jpg"
+      },
+      {
+        "name": "Mirjam",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Flevoland/vvd/5. mirjam.jpg"
+      }
+    ],
+    "Gelderland": [
+      {
+        "name": "Marcel",
+        "age": null,
+        "party": "50-plus",
+        "image_url": "/data/kandidaten/Gelderland/50-plus/1. marcel.jpg"
+      },
+      {
+        "name": "Kees",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Gelderland/cda/1. kees.jpg"
+      },
+      {
+        "name": "Martijn",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Gelderland/cda/2. martijn.jpg"
+      },
+      {
+        "name": "Rob",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Gelderland/cda/3. rob.jpg"
+      },
+      {
+        "name": "Peter",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Gelderland/cda/4. peter.jpg"
+      },
+      {
+        "name": "Jan Dirk",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Gelderland/cda/5. jan-dirk.jpg"
+      },
+      {
+        "name": "Pieter",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Gelderland/cu/1. pieter.jpg"
+      },
+      {
+        "name": "Dirk",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Gelderland/cu/2. dirk.jpg"
+      },
+      {
+        "name": "Peter",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Gelderland/cu/3. peter.jpg"
+      },
+      {
+        "name": "Dick",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Gelderland/cu/4. dick.jpg"
+      },
+      {
+        "name": "Janneke",
+        "age": null,
+        "party": "cu",
+        "image_url": "/data/kandidaten/Gelderland/cu/5. janneke.jpg"
+      },
+      {
+        "name": "Michiel",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Gelderland/d66/1. michiel.jpg"
+      },
+      {
+        "name": "Fleur",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Gelderland/d66/2. fleur.jpg"
+      },
+      {
+        "name": "Rita",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Gelderland/d66/3. rita.jpg"
+      },
+      {
+        "name": "Lucia",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Gelderland/d66/4. lucia.jpg"
+      },
+      {
+        "name": "Rigo",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Gelderland/d66/5. rigo.jpg"
+      },
+      {
+        "name": "Nelson",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Gelderland/groenlinks/1. nelson.jpg"
+      },
+      {
+        "name": "Anne",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Gelderland/groenlinks/2. anne.jpg"
+      },
+      {
+        "name": "Jao",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Gelderland/groenlinks/3. jao.jpg"
+      },
+      {
+        "name": "Paul",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Gelderland/groenlinks/4. paul.jpg"
+      },
+      {
+        "name": "Henk",
+        "age": null,
+        "party": "lokaal-belang-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokaal-belang-gelderland/1. henk.jpg"
+      },
+      {
+        "name": "Harm",
+        "age": null,
+        "party": "lokaal-belang-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokaal-belang-gelderland/2. harm.jpg"
+      },
+      {
+        "name": "Jet",
+        "age": null,
+        "party": "lokaal-belang-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokaal-belang-gelderland/3. jet.jpg"
+      },
+      {
+        "name": "Paul",
+        "age": null,
+        "party": "lokaal-belang-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokaal-belang-gelderland/4. paul.jpg"
+      },
+      {
+        "name": "Paul",
+        "age": null,
+        "party": "lokaal-belang-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokaal-belang-gelderland/5. paul.jpg"
+      },
+      {
+        "name": "Ronald",
+        "age": null,
+        "party": "lokale-partijen-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokale-partijen-gelderland/1. ronald.jpg"
+      },
+      {
+        "name": "Sander",
+        "age": null,
+        "party": "lokale-partijen-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokale-partijen-gelderland/2. sander.jpg"
+      },
+      {
+        "name": "Petra",
+        "age": null,
+        "party": "lokale-partijen-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokale-partijen-gelderland/3. petra.jpg"
+      },
+      {
+        "name": "Pieter",
+        "age": null,
+        "party": "lokale-partijen-gelderland",
+        "image_url": "/data/kandidaten/Gelderland/lokale-partijen-gelderland/5. pieter.jpg"
+      },
+      {
+        "name": "Trix",
+        "age": null,
+        "party": "mens-en-spirit",
+        "image_url": "/data/kandidaten/Gelderland/mens-en-spirit/1. trix.jpg"
+      },
+      {
+        "name": "Peter",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Gelderland/pvda/1. peter.jpg"
+      },
+      {
+        "name": "Anna Lena",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Gelderland/pvda/2. anna-lena.jpg"
+      },
+      {
+        "name": "Piet",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Gelderland/pvda/3. piet.jpg"
+      },
+      {
+        "name": "Karin",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Gelderland/pvda/4. karin.jpg"
+      },
+      {
+        "name": "Fokke",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Gelderland/pvda/5. fokke.jpg"
+      },
+      {
+        "name": "Marjolein",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Gelderland/pvv/1. marjolein.jpg"
+      },
+      {
+        "name": "Alexander",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Gelderland/pvv/2. alexaner.jpg"
+      },
+      {
+        "name": "Klaas",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Gelderland/sgp/1. klaas.jpg"
+      },
+      {
+        "name": "Breunis",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Gelderland/sgp/2. breunis.jpg"
+      },
+      {
+        "name": "Evert",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Gelderland/sgp/3. evert.jpg"
+      },
+      {
+        "name": "Bennie",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Gelderland/sgp/4. bennie.jpg"
+      },
+      {
+        "name": "Arjen",
+        "age": null,
+        "party": "sgp",
+        "image_url": "/data/kandidaten/Gelderland/sgp/5. arjen.jpg"
+      },
+      {
+        "name": "Eric",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Gelderland/sp/1. eric.jpg"
+      },
+      {
+        "name": "Peter",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Gelderland/sp/2. peter.jpg"
+      },
+      {
+        "name": "Agnes",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Gelderland/sp/3. agnes.jpg"
+      },
+      {
+        "name": "Maurits",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Gelderland/sp/5. maurits.jpg"
+      }
+    ],
+    "Noord-Brabant": [
+      {
+        "name": "Marianne",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Brabant/cda/1. marianne.jpg"
+      },
+      {
+        "name": "Ton",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Brabant/cda/2. ton.jpg"
+      },
+      {
+        "name": "Brigite",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Brabant/cda/3. brigite.jpg"
+      },
+      {
+        "name": "Stijn",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Brabant/cda/4. stijn.jpg"
+      },
+      {
+        "name": "Rene",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Brabant/cda/5. rene.jpg"
+      },
+      {
+        "name": "Herman",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Brabant/christen-unie-sgp/1. herman.jpg"
+      },
+      {
+        "name": "Arie",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Brabant/christen-unie-sgp/2. arie.jpg"
+      },
+      {
+        "name": "Jan",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Brabant/christen-unie-sgp/3. jan.jpg"
+      },
+      {
+        "name": "Marijke",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Brabant/christen-unie-sgp/4. marijke.jpg"
+      },
+      {
+        "name": "Anne Marie",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Brabant/d66/1. anne-marie.jpg"
+      },
+      {
+        "name": "Arend",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Brabant/d66/2. Arend.jpg"
+      },
+      {
+        "name": "Femke",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Brabant/d66/3. femke.jpg"
+      },
+      {
+        "name": "Jeroen",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Brabant/d66/4. jeroen.jpg"
+      },
+      {
+        "name": "Tineke",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Brabant/d66/5. tineke.jpg"
+      },
+      {
+        "name": "Patricia",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Brabant/groenlinks/1. patricia.jpg"
+      },
+      {
+        "name": "Hagar",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Brabant/groenlinks/2. hagar.jpg"
+      },
+      {
+        "name": "Arno",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Brabant/groenlinks/3. arno.jpg"
+      },
+      {
+        "name": "Dilek",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Brabant/groenlinks/4. dilek.jpg"
+      },
+      {
+        "name": "Katelijn",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Brabant/groenlinks/5. katelijn.jpg"
+      },
+      {
+        "name": "Jan",
+        "age": null,
+        "party": "lokaal-brabant",
+        "image_url": "/data/kandidaten/Noord-Brabant/lokaal-brabant/1. jan.jpg"
+      },
+      {
+        "name": "John",
+        "age": null,
+        "party": "lokaal-brabant",
+        "image_url": "/data/kandidaten/Noord-Brabant/lokaal-brabant/5. john.jpg"
+      },
+      {
+        "name": "Stijn",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvda/1. stijn.jpg"
+      },
+      {
+        "name": "Antoinette",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvda/2. antoinette.jpg"
+      },
+      {
+        "name": "Martijn",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvda/3. martijn.jpg"
+      },
+      {
+        "name": "Ben",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvda/4. ben.jpg"
+      },
+      {
+        "name": "Driek",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvda/5. driek.jpg"
+      },
+      {
+        "name": "Alexander",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvv/1. alexander.jpg"
+      },
+      {
+        "name": "Harry",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvv/2. harry.jpg"
+      },
+      {
+        "name": "Patricia",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvv/3. patricia.jpg"
+      },
+      {
+        "name": "Louis",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvv/4. louis.jpg"
+      },
+      {
+        "name": "Joyce",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Brabant/pvv/5. joyce.jpg"
+      },
+      {
+        "name": "Nico",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Brabant/sp/1. nico.jpg"
+      },
+      {
+        "name": "Willemieke",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Brabant/sp/2. willemieke.jpg"
+      },
+      {
+        "name": "Nurretin",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Brabant/sp/3. nurretin.jpg"
+      },
+      {
+        "name": "Maarten",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Brabant/sp/4. maarten.jpg"
+      },
+      {
+        "name": "Roy",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Brabant/sp/5. roy.jpg"
+      },
+      {
+        "name": "Bert",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Brabant/vvd/1. bert.jpg"
+      },
+      {
+        "name": "Martijn",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Brabant/vvd/2. martijn.jpg"
+      },
+      {
+        "name": "Wilma",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Brabant/vvd/3. wilma.jpg"
+      },
+      {
+        "name": "Christophe",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Brabant/vvd/4. christophe.jpg"
+      },
+      {
+        "name": "Hubert",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Brabant/vvd/5. hubert.jpg"
+      }
+    ],
+    "Noord-Holland": [
+      {
+        "name": "Jaap",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Holland/cda/1. jaap.jpg"
+      },
+      {
+        "name": "Jitske",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Holland/cda/2. jitske.jpg"
+      },
+      {
+        "name": "Heleen",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Holland/cda/3. heleen.jpg"
+      },
+      {
+        "name": "Theo",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Holland/cda/4. theo.jpg"
+      },
+      {
+        "name": "Willemien",
+        "age": null,
+        "party": "cda",
+        "image_url": "/data/kandidaten/Noord-Holland/cda/5. willemien.jpg"
+      },
+      {
+        "name": "Michel",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Holland/christen-unie-sgp/1. michel.jpg"
+      },
+      {
+        "name": "Don",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Holland/christen-unie-sgp/2. don.jpg"
+      },
+      {
+        "name": "Marijke",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Holland/christen-unie-sgp/3. marijke.jpg"
+      },
+      {
+        "name": "Klaas-Jan",
+        "age": null,
+        "party": "christen-unie-sgp",
+        "image_url": "/data/kandidaten/Noord-Holland/christen-unie-sgp/5. klaas-jan.jpg"
+      },
+      {
+        "name": "Joke",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Holland/d66/1. joke.jpg"
+      },
+      {
+        "name": "Ilse",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Holland/d66/2. ilse.jpg"
+      },
+      {
+        "name": "Amelie",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Holland/d66/3. amelie.jpg"
+      },
+      {
+        "name": "Suzanne",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Holland/d66/4. suzanne.jpg"
+      },
+      {
+        "name": "Flip",
+        "age": null,
+        "party": "d66",
+        "image_url": "/data/kandidaten/Noord-Holland/d66/5. flip.jpg"
+      },
+      {
+        "name": "Alwin",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Holland/groenlinks/1. alwin.jpg"
+      },
+      {
+        "name": "Vera",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Holland/groenlinks/2. vera.jpg"
+      },
+      {
+        "name": "Servaz",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Holland/groenlinks/3. servaz.jpg"
+      },
+      {
+        "name": "Rosan",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Holland/groenlinks/4. rosan.jpg"
+      },
+      {
+        "name": "Fred",
+        "age": null,
+        "party": "groenlinks",
+        "image_url": "/data/kandidaten/Noord-Holland/groenlinks/5. fred.jpg"
+      },
+      {
+        "name": "Leonie",
+        "age": null,
+        "party": "hart-voor-holland",
+        "image_url": "/data/kandidaten/Noord-Holland/hart-voor-holland/1. leonie.jpg"
+      },
+      {
+        "name": "Ron",
+        "age": null,
+        "party": "hart-voor-holland",
+        "image_url": "/data/kandidaten/Noord-Holland/hart-voor-holland/2. ron.jpg"
+      },
+      {
+        "name": "Eric",
+        "age": null,
+        "party": "hart-voor-holland",
+        "image_url": "/data/kandidaten/Noord-Holland/hart-voor-holland/3. eric.jpg"
+      },
+      {
+        "name": "Judie",
+        "age": null,
+        "party": "hart-voor-holland",
+        "image_url": "/data/kandidaten/Noord-Holland/hart-voor-holland/4. judie.jpg"
+      },
+      {
+        "name": "Jeff",
+        "age": null,
+        "party": "ouderenpartij-nh",
+        "image_url": "/data/kandidaten/Noord-Holland/ouderenpartij-nh/1. jeff.jpg"
+      },
+      {
+        "name": "Bruno",
+        "age": null,
+        "party": "ouderenpartij-nh",
+        "image_url": "/data/kandidaten/Noord-Holland/ouderenpartij-nh/2. bruno.jpg"
+      },
+      {
+        "name": "Joke",
+        "age": null,
+        "party": "ouderenpartij-nh",
+        "image_url": "/data/kandidaten/Noord-Holland/ouderenpartij-nh/5. joke.jpg"
+      },
+      {
+        "name": "Charif",
+        "age": 34,
+        "party": "piratenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/piratenpartij/1. charif.jpg"
+      },
+      {
+        "name": "Jenneke",
+        "age": null,
+        "party": "piratenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/piratenpartij/2. jenneke.jpg"
+      },
+      {
+        "name": "Martijn",
+        "age": 34,
+        "party": "piratenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/piratenpartij/3. martijn.jpg"
+      },
+      {
+        "name": "Tjeerd",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Holland/pvda/1. tjeerd.jpg"
+      },
+      {
+        "name": "Marieke",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Holland/pvda/2. marieke.jpg"
+      },
+      {
+        "name": "Adnan",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Holland/pvda/3. adnan.jpg"
+      },
+      {
+        "name": "Aukelien",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Holland/pvda/4. aukelien.jpg"
+      },
+      {
+        "name": "Xander",
+        "age": null,
+        "party": "pvda",
+        "image_url": "/data/kandidaten/Noord-Holland/pvda/5. xander.jpg"
+      },
+      {
+        "name": "Dannij",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Holland/pvv/1. dannij.jpg"
+      },
+      {
+        "name": "Joost",
+        "age": null,
+        "party": "pvv",
+        "image_url": "/data/kandidaten/Noord-Holland/pvv/2. joost.jpg"
+      },
+      {
+        "name": "Remine",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Holland/sp/1. remine.jpg"
+      },
+      {
+        "name": "Marnix",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Holland/sp/2. marnix.jpg"
+      },
+      {
+        "name": "Geert",
+        "age": 34,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Holland/sp/3. geert.jpg"
+      },
+      {
+        "name": "Wim",
+        "age": null,
+        "party": "sp",
+        "image_url": "/data/kandidaten/Noord-Holland/sp/5. wim.jpg"
+      },
+      {
+        "name": "Monique",
+        "age": null,
+        "party": "vrouwenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/vrouwenpartij/1. monique.jpg"
+      },
+      {
+        "name": "Khalid",
+        "age": 34,
+        "party": "vrouwenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/vrouwenpartij/2. khalid.jpg"
+      },
+      {
+        "name": "Jolanda",
+        "age": null,
+        "party": "vrouwenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/vrouwenpartij/3. jolanda.jpg"
+      },
+      {
+        "name": "Mar",
+        "age": null,
+        "party": "vrouwenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/vrouwenpartij/4. mar.jpg"
+      },
+      {
+        "name": "Aaron",
+        "age": null,
+        "party": "vrouwenpartij",
+        "image_url": "/data/kandidaten/Noord-Holland/vrouwenpartij/5. aaron.jpg"
+      },
+      {
+        "name": "Elisabeth",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Holland/vvd/1. elisabeth.jpg"
+      },
+      {
+        "name": "Cees",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Holland/vvd/2. cees.jpg"
+      },
+      {
+        "name": "Paul",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Holland/vvd/3. paul.jpg"
+      },
+      {
+        "name": "Jerry",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Holland/vvd/4. jerry.jpg"
+      },
+      {
+        "name": "Erik",
+        "age": null,
+        "party": "vvd",
+        "image_url": "/data/kandidaten/Noord-Holland/vvd/5. erik.jpg"
+      }
+    ]
+  }
+}

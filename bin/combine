@@ -1,0 +1,61 @@
+#!/usr/bin/ruby
+
+require 'json'
+
+data_dir = File.expand_path('../../www/data', __FILE__)
+
+data = {
+  :parties    => {},
+  :candidates => {}
+}
+
+def parse_file(path)
+  contents = File.open(path) { |f| f.read }
+  contents.gsub! /[“”]/, '"'
+  contents.gsub! /"age":\s+\n/, '"age": null'
+
+  puts "Processing: #{path}"
+
+  # Write the file back.
+  File.open(path, 'wb+') do |file|
+    file.write contents
+  end
+
+  JSON.parse(contents)
+end
+
+Dir["#{data_dir}/partijen/*"].each do |party_path|
+  party = File.basename(party_path, '.json')
+
+  `textutil -convert txt -extension json "#{party_path}"`
+
+  data[:parties][party] = parse_file(party_path)
+end
+
+Dir["#{data_dir}/kandidaten/*"].each do |province_path|
+  province = File.basename(province_path)
+
+  data[:candidates][province] ||= []
+
+  Dir["#{province_path}/*"].each do |party_path|
+    party = File.basename(party_path)
+
+    Dir["#{party_path}/*.json"].each do |candidate_path|
+      `textutil -convert txt -extension json "#{candidate_path}"`
+
+      candidate = parse_file(candidate_path)
+      candidate[:party] = party
+      candidate[:image_url] = "/data/kandidaten/#{province}/#{party}/#{File.basename(candidate_path, '.json')}.jpg"
+
+      if !data[:parties][party]
+        raise "Partij #{party} niet gevonden!"
+      end
+
+      data[:candidates][province] << candidate
+    end
+  end
+end
+
+File.open("#{data_dir}/all.json", 'wb+') do |file|
+  file.write(JSON.generate(data))
+end

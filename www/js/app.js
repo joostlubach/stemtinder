@@ -1,46 +1,14 @@
-requirejs.config({
-    baseUrl: 'js/lib',
-    urlArgs: 'v=' + (new Date().getTime()),
-    deps: ['modernizr', 'jquery-ui'],
-    paths: {
-        app:        '../app',
-        templates:  '../../templates',
-        assets:     '../../assets'
-    },
-    shim: {
-      'jquery-ui': {
-        deps: ['jquery']
-      },
-      'jquery.livequery': {
-        deps: ['jquery']
-      }
-    }
-});
+define(['app/stack'], function (Stack) {
 
-require(['jquery', 'app/behavior'], function ($, behavior) {
+  var App = function () {
+    this.stack = new Stack('#stack', {province: 'Flevoland'});
+  };
 
-  // Automatically include templates.
-  behavior('[data-include]', function () {
-    var $element     = $(this),
-        templatePath = $element.attr('data-include');
+  App.prototype = {
 
-    require(['text!' + templatePath], function (template) {
-      $element.html(template);
-    });
-  });
 
-  // Automatically run widgets.
-  behavior('[data-widget]', function () {
-    var $element = $(this),
-        widgets  = $element.attr('data-widget').split(' ');
+  };
 
-    _.each(widgets, function (name) {
-      require(['app/widgets/' + name], function (widget) {
-        new widget($element);
-      });
-    });
-
-  });
+  return App;
 
 });
-

@@ -1,0 +1,18 @@
+$card-width: 280px;
+$card-height: 280px + $small-space + 20px; // Room for label
+
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+
+  @include flex-column;
+  @include justify-content(center);
+}
+
+#stack {
+  width: $card-width;
+  height: $card-height;
+}

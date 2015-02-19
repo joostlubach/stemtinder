@@ -1,0 +1,24 @@
+article.card {
+
+  padding: $large-space;
+  width: $card-width; height: $card-height;
+
+  background: white;
+
+  @include flex-column(stretch);
+  figure img {
+    width: $card-width - 2 * $large-space;
+    height: $card-width - 2 * $large-space;
+  }
+
+  border: 1px solid $border-color;
+  @include border-radius(3px);
+
+  h2 {
+    margin-top: $small-space;
+    font-size: 20px;
+  }
+
+  @include user-select(none);
+
+}
