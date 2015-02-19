@@ -2,13 +2,9 @@
 
 class CandidatesData extends StaticData {
 
-  protected function readData() {
-    $path = __DIR__ . '/../www/data/all.json';
-    return json_decode(file_get_contents($path), true);
-  }
-
   public function stack($province) {
-    $data = $this->readData();
+    $data = $this->get('/all.json');
+    var_dump($data); die();
 
     $candidates = $data['candidates'][$province];
     shuffle($candidates);
