@@ -116,10 +116,6 @@ class Router {
     list($controllerName, $action) = explode('#', $route['invocation']);
 
     $controllerClass = $this->pascalize($controllerName) . 'Controller';
-
-    if (!class_exists($controllerClass)) {
-      require_once __DIR__.'/../app/controllers/'.$controllerClass.'.php';
-    }
     $controller = new $controllerClass();
 
     $controller->invokeAction($action, $routeParameters);

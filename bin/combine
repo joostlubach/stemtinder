@@ -32,6 +32,8 @@ Dir["#{data_dir}/partijen/*"].each do |party_path|
   data[:parties][party] = parse_file(party_path)
 end
 
+candidate_id = 1
+
 Dir["#{data_dir}/kandidaten/*"].each do |province_path|
   province = File.basename(province_path)
 
@@ -44,6 +46,7 @@ Dir["#{data_dir}/kandidaten/*"].each do |province_path|
       `textutil -convert txt -extension json "#{candidate_path}"`
 
       candidate = parse_file(candidate_path)
+      candidate[:id] = candidate_id
       candidate[:party] = party
       candidate[:image_url] = "/data/kandidaten/#{province}/#{party}/#{File.basename(candidate_path, '.json')}.jpg"
 
@@ -52,6 +55,8 @@ Dir["#{data_dir}/kandidaten/*"].each do |province_path|
       end
 
       data[:candidates][province] << candidate
+
+      candidate_id += 1
     end
   end
 end

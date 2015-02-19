@@ -31,14 +31,19 @@ define(['handlebars', 'app/widget', 'text!templates/card.html'], function (H, Wi
       this.currentIndex += this.sliceLength;
 
       _.each(candidates, function (candidate) {
-        var card = this.cardTemplate({candidate: candidate});
+        var card = $(this.cardTemplate({candidate: candidate}));
+
+        card.data('candidate', candidate);
         this.$element.prepend(card);
       }, this);
     },
 
-    _onFailPass: function () {
-      var visibleCards = this.$element.children();
+    _onFailPass: function (e) {
+      // Post the vote.
+      var candidate = $(e.currentTarget).data('candidate');
+      $.post('/votes', JSON.stringify({candidate_id: candidate.id, vote: e.type}));
 
+      var visibleCards = this.$element.children();
       if (visibleCards.length <= this.sliceLength && this.currentIndex < this.candidates.length) {
         this.prependSlice();
       }
