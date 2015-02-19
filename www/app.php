@@ -1,9 +1,6 @@
 <?php
 
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../lib/app.class.php';
-require_once __DIR__.'/../lib/router.class.php';
-require_once __DIR__.'/../lib/http_exception.class.php';
 
 header('Access-Control-Allow-Origin: *');
 

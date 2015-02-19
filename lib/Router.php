@@ -118,8 +118,7 @@ class Router {
     $controllerClass = $this->pascalize($controllerName) . 'Controller';
 
     if (!class_exists($controllerClass)) {
-      require_once __DIR__.'/controller.class.php';
-      require_once __DIR__.'/../app/controllers/'.$controllerName.'_controller.class.php';
+      require_once __DIR__.'/../app/controllers/'.$controllerClass.'.php';
     }
     $controller = new $controllerClass();
 
