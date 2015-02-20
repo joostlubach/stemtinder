@@ -12,6 +12,11 @@ class Result {
   private $id;
 
   /**
+   * @Column(name="remote_ip", type="string")
+   */
+  private $remoteIp;
+
+  /**
    * @Column(name="province", type="string")
    */
   private $province;
@@ -29,6 +34,14 @@ class Result {
 
   public function getId() {
     return $this->id;
+  }
+
+  public function getRemoteIp() {
+    return $this->remoteIp;
+  }
+  public function setRemoteIp($value) {
+    $this->remoteIp = $value;
+    return $this;
   }
 
   public function getProvince() {
