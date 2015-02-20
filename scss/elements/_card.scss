@@ -1,22 +1,38 @@
 article.card {
+  position: relative;
 
-  padding: $large-space;
   width: $card-width; height: $card-height;
 
   background: white;
 
-  @include flex-column(stretch);
+  .vote {
+    position: absolute;
+    top: 0; right: 0;
+    margin: $large-space;
+    width: 50px; height: 50px;
+    background-size: 50px 50px;
+  }
+
+  &.fail .vote {
+    background-image: url(../img/cross.png);
+  }
+  &.pass .vote {
+    background-image: url(../img/heart.png);
+  }
+
   figure img {
-    width: $card-width - 2 * $large-space;
-    height: $card-width - 2 * $large-space;
+    @include border-radius(7px 7px 0 0);
+    width: $card-width - 2px;
+    height: $card-width - 2px;
   }
 
   border: 1px solid $border-color;
-  @include border-radius(3px);
+  @include border-radius(8px);
 
   h2 {
-    margin-top: $small-space;
-    font-size: 20px;
+    padding: $large-space;
+    height: $card-label-height;
+    font-size: $card-label-height - 4px;
   }
 
   @include user-select(none);

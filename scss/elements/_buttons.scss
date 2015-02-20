@@ -1,0 +1,23 @@
+button {
+  cursor: pointer;
+  text-indent: -99999px;
+
+  width: 100px; height: 100px;
+
+  @include border-radius(100px);
+  border: 10px solid #e2e1e1;
+  background: white center center no-repeat;
+  background-size: 50px 50px;
+
+  &.cross {
+    background-image: url(../img/cross.png);
+  }
+  &.heart {
+    background-image: url(../img/heart.png);
+  }
+
+  &:active {
+    background-color: #e2e1e1;
+  }
+
+}

@@ -4,11 +4,11 @@ Encoding.default_external = "UTF-8"
 require 'sass-globbing'
 
 # Set this to the root of your project when deployed:
-http_path = "www"
-css_dir = "www/css"
+http_path = "."
+css_dir = "css"
 sass_dir = "scss"
-images_dir = "www/img"
-javascripts_dir = "www/js"
+images_dir = "img"
+javascripts_dir = "js"
 cache_path = 'tmp/cache/sass'
 
 # You can select your preferred output style here (can be overridden via the command line):

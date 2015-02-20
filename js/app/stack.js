@@ -5,50 +5,52 @@ define(['handlebars', 'app/widget', 'text!templates/card.html'], function (H, Wi
       var self = this;
 
       this.cardTemplate = H.compile(CardTemplate);
-      this.province = options.province;
 
-      this.currentIndex = 0;
-      this.sliceLength = 5;
+      this.sliceStart = 0;
+      this.sliceLength = 4;
       this.candidates = 0;
+      this.currentIndex = 0;
 
       this.on('fail pass', '.card', _.bind(this._onFailPass, this));
-
-      this.load().then(function () {
-        self.prependSlice();
-        self.prependSlice();
-      });
     },
 
-    load: function () {
+    load: function (province) {
       var self = this;
-      return $.getJSON('/candidates/stack?province=Flevoland').then(function (candidates) {
+      return $.getJSON('/candidates/stack?province=' + province).then(function (candidates) {
         self.candidates = candidates;
+
+        self.prependSlice();
       });
     },
 
     prependSlice: function () {
-      var candidates = this.candidates.slice(this.currentIndex, this.currentIndex + this.sliceLength);
-      this.currentIndex += this.sliceLength;
+      var candidates = this.candidates.slice(this.sliceStart, this.sliceStart + this.sliceLength);
+      this.sliceStart += this.sliceLength;
 
       _.each(candidates, function (candidate) {
         var card = $(this.cardTemplate({candidate: candidate}));
-
         card.data('candidate', candidate);
         this.$element.prepend(card);
       }, this);
     },
 
-    _onFailPass: function (e) {
-      var visibleCards = this.$element.children();
-      if (visibleCards.length <= this.sliceLength && this.currentIndex < this.candidates.length) {
+    nextCard: function () {
+      this.currentIndex++;
+
+      if (this.currentIndex + this.sliceLength > this.sliceStart) {
         this.prependSlice();
       }
-      if (visibleCards.length === 1) {
+
+      if (this.currentIndex == this.candidates.length) {
         var self = this;
         window.setTimeout(function () {
           self.$element.trigger('stackend');
         }, 0);
       }
+    },
+
+    _onFailPass: function (e) {
+      this.nextCard();
     }
 
   });

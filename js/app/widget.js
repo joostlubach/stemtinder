@@ -3,7 +3,7 @@
  * can be executed on any element. The element will obtain an instance of the widget class, which is stored
  * in a $.data variable.
  */
-define(['jquery'], function ($) {
+define(['underscore', 'jquery'], function (_, $) {
 
   var Widget = function () {
   };

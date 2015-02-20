@@ -1,5 +1,10 @@
-$card-width: 280px;
-$card-height: 280px + $small-space + 20px; // Room for label
+$screen-width: 480px;
+$screen-height: 720px;
+
+$card-label-height: 40px;
+
+$card-width: 401px;
+$card-height: 401px + 2 * $large-space + $card-label-height; // Room for label
 
 html, body {
   height: 100%;
@@ -7,12 +12,50 @@ html, body {
 
 body {
   overflow: hidden;
+}
 
-  @include flex-column;
-  @include justify-content(center);
+#logo {
+  width: 241px; height: 65px;
+  margin: $large-space auto 0;
+}
+
+#screen {
+  position: absolute;
+  left: 50%; top: 50%;
+  margin-left: -$screen-width / 2;
+  margin-top: -$screen-height / 2;
+
+  width: $screen-width;
+  height: $screen-height;
 }
 
 #stack {
+  position: absolute;
+  left: 50%; top: 36%;
+  margin-left: -$card-width / 2;
+  margin-top: -$card-height / 2;
+
   width: $card-width;
   height: $card-height;
+}
+
+#buttons {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  @include clearfix;
+
+  margin: 22px auto;
+  width: 250px;
+
+  :first-child {
+    float: left;
+  }
+  :last-child {
+    float: right;
+  }
+}
+
+#province-chooser {
+  @include fill;
 }

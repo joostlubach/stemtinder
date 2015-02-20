@@ -3,7 +3,7 @@ define(['underscore', 'app/widget'], function (_, widget) {
 
     init: function () {
       this._prevParent = null;
-      this._prevSibling = null;
+      this._currentVote = null;
 
       this.on('mousedown.card', _.bind(this._onDown, this));
       this.on('touchstart.card', _.bind(this._onDown, this));
@@ -19,17 +19,44 @@ define(['underscore', 'app/widget'], function (_, widget) {
         step: function (now, tween) {
           if (tween.prop != 'left') { return; }
 
-          var degs = (now - x0) / 10;
-          var transform = 'rotate(' + degs + 'deg)';
+          var opacity     = Math.max(0, Math.min(1, 1.5 - Math.abs(now - x0) / 300)),
+              iconOpacity = Math.max(0, Math.min(1, Math.abs(now - x0) / 200)),
+              degs        = (now - x0) / 10,
+              transform   = 'rotate(' + degs + 'deg)';
 
           self.$element.css({
+            opacity: opacity,
             transform: transform,
             '-ms-transform': transform
           });
+          self.$element.find('i.vote').css('opacity', iconOpacity);
         },
 
         complete: _.bind(complete, this)
       };
+    },
+
+    dismiss: function (vote) {
+      var offset = this.$element.offset();
+
+      this.$element.removeClass('fail pass');
+      this.$element.addClass(vote);
+
+      this.$element.css({
+        position: 'absolute',
+        left: offset.left,
+        top: offset.top,
+        'will-change': 'opacity transform left top'
+      }).appendTo('body');
+
+      var animation = this._createAnimation(offset.left, function () {
+        this.$element.remove();
+      });
+
+      this.$element.animate({
+        left: vote == 'fail' ? offset.left - 300 : offset.left + 300,
+        top:  offset.top + 40
+      }, animation);
     },
 
     _onDown: function (e) {
@@ -94,16 +121,13 @@ define(['underscore', 'app/widget'], function (_, widget) {
           Math.abs(y - this.dragState.my0) > 10;
 
         if (significant) {
-          if (this.$element.index() === 0) {
-            this._prevParent = this.$element.parent();
-          } else {
-            this._prevSibling = this.$element.prev();
-          }
+          this._prevParent = this.$element.parent();
 
           this.$element.css({
             position: 'absolute',
             left: this.dragState.x0,
-            top: this.dragState.y0
+            top: this.dragState.y0,
+            'will-change': 'opacity transform left top'
           }).appendTo('body');
 
           this.dragState.active = true;
@@ -111,19 +135,33 @@ define(['underscore', 'app/widget'], function (_, widget) {
       }
 
       if (this.dragState.active) {
-        this.dragState.x = this.dragState.x0 + x - this.dragState.mx0;
-        this.dragState.y = this.dragState.y0 + y - this.dragState.my0;
+        var dx = x - this.dragState.mx0,
+            dy = y - this.dragState.my0;
+
+        this.dragState.x = this.dragState.x0 + dx;
+        this.dragState.y = this.dragState.y0 + dy;
+
+        if (dx > 0 && this._currentVote != 'pass') {
+          this._currentVote = 'pass';
+          this.$element.removeClass('fail').addClass('pass');
+        } else if (dx < 0 && this._currentVote != 'fail') {
+          this._currentVote = 'fail';
+          this.$element.removeClass('pass').addClass('fail');
+        }
 
         this.$element.css({left: this.dragState.x, top: this.dragState.y});
 
-        var degs = (this.dragState.x - this.dragState.x0) / 10;
-
-        var transform = 'rotate(' + degs + 'deg)';
+        var opacity     = Math.max(0, Math.min(1, 1.5 - Math.abs(this.dragState.x - this.dragState.x0) / 300)),
+            iconOpacity = Math.max(0, Math.min(1, Math.abs(this.dragState.x - this.dragState.x0) / 200)),
+            degs        = (this.dragState.x - this.dragState.x0) / 10,
+            transform   = 'rotate(' + degs + 'deg)';
 
         this.$element.css({
+          'opacity':   opacity,
           'transform': transform,
           '-ms-transform': transform,
         });
+        this.$element.find('i.vote').css('opacity', iconOpacity);
       }
     },
 
@@ -152,7 +190,6 @@ define(['underscore', 'app/widget'], function (_, widget) {
         this.$element.remove();
       });
 
-
       this.$element.animate({
         left: this.dragState.x0 + (this.dragState.x - this.dragState.x0) * 2,
         top:  this.dragState.y0 + (this.dragState.y - this.dragState.y0) * 2
@@ -160,20 +197,18 @@ define(['underscore', 'app/widget'], function (_, widget) {
     },
 
     placeBack: function () {
-      if (this._prevParent) {
-        this.$element.prependTo(this._prevParent);
-      } else {
-        this.$element.insertAfter(this._prevSibling);
-      }
+      this.$element.appendTo(this._prevParent);
     },
 
     revert: function () {
       var animation = this._createAnimation(this.dragState.x0, function () {
         this.$element.css({
-          position: '', left: '', top: ''
+          position: '', left: '', top: '',
+          'will-change': ''
         });
 
         this.placeBack();
+        this.$element.removeClass('pass fail');
       });
 
       this.$element.animate({

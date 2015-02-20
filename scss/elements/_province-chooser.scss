@@ -1,0 +1,62 @@
+#province-chooser {
+
+  background: white;
+
+  h1 {
+    width: 334px; height: 90px;
+    margin: $large-space auto 0;
+  }
+
+  h2 {
+    width: 233px; height: 26px;
+    margin: $large-space auto 0;
+  }
+
+  ul {
+    height: $screen-height - 90px - 26px - 102px - 4 * $large-space;
+  }
+
+  footer {
+    width: $screen-width; height: 102px;
+  }
+
+  ul {
+
+    margin: $large-space #{5 * $large-space};
+
+  }
+
+  li {
+    padding: 4px 0 0;
+    border-bottom: 1px solid $fg-color;
+
+    cursor: pointer;
+
+    .check {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: $small-space;
+
+      position: relative;
+      top: -2px;
+
+      width: 26px; height: 26px;
+      border: 2px solid #4f4e4e;
+      @include border-radius(3px);
+
+      i {
+        position: absolute;
+        top: 0; left: -1px;
+        width: 28px; height: 40px;
+
+        background: url(../img/vinkje.png);
+        background-size: 28px 40px;
+      }
+    }
+
+    .check i { display: none; }
+    &.selected .check i { display: block; }
+  }
+
+
+}

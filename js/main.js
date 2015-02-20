@@ -3,9 +3,9 @@ requirejs.config({
     urlArgs: 'v=' + (new Date().getTime()),
     deps: ['modernizr', 'jquery-ui'],
     paths: {
-        app:        '../app',
-        templates:  '../../templates',
-        assets:     '../../assets'
+      app:        '../app',
+      templates:  '../../templates',
+      assets:     '../../assets'
     },
     shim: {
       'jquery-ui': {
@@ -36,7 +36,7 @@ require(['jquery', 'app/behavior', 'app', 'app/widget'], function ($, behavior, 
 
     _.each(widgets, function (name) {
       if (!$element.widget(name)) {
-        require(['app/widgets/' + name], function (widget) {
+        require(['app/' + name], function (widget) {
           new widget($element);
         });
       }

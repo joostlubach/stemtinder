@@ -1,3 +1,9 @@
+<Limit GET POST PUT DELETE>
+  Order deny, allow
+  Deny from all
+  Allow from 37.17.208.217
+</Limit>
+
 DirectoryIndex index.html
 
 RewriteEngine On
