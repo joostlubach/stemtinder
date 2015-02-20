@@ -1,6 +1,7 @@
 define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html'], function (H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate) {
 
   var App = function () {
+    this.passes = 0;
     this.votes = {};
     this.parties = {};
     this.passesByParty = {};
@@ -26,6 +27,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
   App.prototype = {
 
     reset: function () {
+      this.passes = 0;
       this.votes = {};
       this.parties = {};
       this.passesByParty = {};
@@ -42,6 +44,8 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.votes[candidate.id] = vote;
 
       if (vote == 'pass') {
+        this.passes++;
+
         var partyId = candidate.party_id;
         if (!this.passesByParty[partyId]) {
           this.passesByParty[partyId] = 0;
@@ -101,13 +105,13 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     },
 
     displayResult: function () {
-      var parties = this.winningParties();
-
-      if (parties.length === 0) {
+      if (this.passes === 0 || this.passes == this.stack.candidates.length) {
         $('#result').html(this.invalidResultTemplate({party: null})).fadeIn(function () {
           $(this).css('display', '');
         });
       } else {
+        var parties = this.winningParties();
+
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);
         $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn(function () {

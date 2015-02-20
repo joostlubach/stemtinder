@@ -11,7 +11,7 @@
   footer {
     @include flex(0 0 auto);
   }
-  div.logo {
+  .result {
     @include flex(1 1 auto);
   }
 
