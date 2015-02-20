@@ -26,9 +26,9 @@ class Controller {
   }
 
   protected function renderError($status, $message) {
-    http_response_code($status);
-    $json = json_encode(array('error' => $message), JSON_UNESCAPED_SLASHES);
-    echo $json;
+    header("HTTP/1.1 $status");
+    $json = json_encode(array('error' => $message));
+    echo str_replace('\\/', '/', $json);
   }
 
   public function invokeAction($action, $routeParameters) {
@@ -37,9 +37,9 @@ class Controller {
     try {
       $parameters = array_merge($this->loadParameters(), $routeParameters);
       $result = call_user_func(array($this, $action), $parameters);
-      $json = json_encode($result, JSON_UNESCAPED_SLASHES);
+      $json = json_encode($result);
 
-      echo $json;
+      echo str_replace('\\/', '/', $json);
     } catch (HttpException $ex) {
 
       $this->handleHttpException($ex);

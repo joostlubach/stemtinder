@@ -6,25 +6,23 @@ class StaticData {
   protected $memcached;
 
   public function __construct() {
-    $this->root = __DIR__ . '/../www/data';
+    $this->root = __DIR__ . '/../data';
 
-    $this->memcached = new Memcached();
-    $this->memcached->addServer(getenv('MEMCACHED_SERVER'), getenv('MEMCACHED_PORT'));
+    // $this->memcached = new Memcached();
+    // $this->memcached->addServer(getenv('MEMCACHED_SERVER'), getenv('MEMCACHED_PORT'));
   }
 
   public function get($path) {
-    $self = $this;
-
-    $data = $this->memcached->get("static-data:$path");
-    if ($data) {
-      return $data;
-    } else {
+    // $data = $this->memcached->get("static-data:$path");
+    // if ($data) {
+    //   return $data;
+    // } else {
       $fullPath = $this->root . $path;
       $data = json_decode(file_get_contents($fullPath), true);
-      $this->memcached->set("static-data:$path", $data, 60);
+      // $this->memcached->set("static-data:$path", $data, 60);
 
       return $data;
-    }
+    // }
   }
 
   public function clearCache($path) {

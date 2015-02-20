@@ -10,7 +10,7 @@ class VotesController extends Controller {
     $this->em->persist($vote);
     $this->em->flush();
 
-    return ['status' => 'ok'];
+    return array('status' => 'ok');
   }
 
 }

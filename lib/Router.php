@@ -66,10 +66,10 @@ class Router {
     }
 
     if (!$found) {
-      http_response_code(404);
+      header('HTTP/1.1 404 Not Found');
       header('Content-Type: application/json');
-      $json = json_encode(array('error' => "no route found for `$method $path`"), JSON_UNESCAPED_SLASHES);
-      echo $json;
+      $json = json_encode(array('error' => "no route found for `$method $path`"));
+      echo str_replace('\\/', '/', $json);;
       return;
     }
   }

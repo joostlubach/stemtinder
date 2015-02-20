@@ -12,9 +12,16 @@ class Vote {
   private $id;
 
   /**
-   * @Column(name="candidate_id", type="integer")
+   * @ManyToOne(targetEntity="Result", inversedBy="votes")
+   * @JoinColumn(name="result_id", referencedColumnName="id")
    */
-  private $candidateId;
+  private $result;
+
+  /**
+   * @ManyToOne(targetEntity="Candidate", inversedBy="votes")
+   * @JoinColumn(name="candidate_id", referencedColumnName="id")
+   */
+  private $candidate;
 
   /**
    * @Column(name="vote", type="string", length=4)
@@ -25,11 +32,19 @@ class Vote {
     return $this->id;
   }
 
-  public function getCandidateId() {
-    return $this->candidateId;
+  public function getResult() {
+    return $this->result;
   }
-  public function setCandidateId($value) {
-    $this->candidateId = $value;
+  public function setResult($value) {
+    $this->result = $value;
+    return $this;
+  }
+
+  public function getCandidate() {
+    return $this->candidate;
+  }
+  public function setCandidate($value) {
+    $this->candidate = $value;
     return $this;
   }
 

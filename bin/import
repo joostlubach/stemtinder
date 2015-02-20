@@ -1,0 +1,84 @@
+#!/usr/local/bin/php
+<?php
+
+define('DATA_DIR', __DIR__ . '/../data');
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$em = App::getEntityManager();
+
+$parties = array();
+
+function runSql($sql) {
+  global $em;
+  $connection = $em->getConnection();
+  $connection->query($sql);
+}
+
+function parseFile($path) {
+  echo "Processing: $path\n";
+
+  `textutil -convert txt -extension json "$path"`;
+
+  $contents = file_get_contents($path);
+  $contents = preg_replace('/“/', '"', $contents);
+  $contents = preg_replace('/”/', '"', $contents);
+  $contents = preg_replace('/"age":\s+\n/', '"age": null', $contents);
+
+  file_put_contents($path, $contents);
+
+  return json_decode($contents, true);
+}
+
+runSql('SET FOREIGN_KEY_CHECKS=0');
+runSql('TRUNCATE candidates;');
+runSql('TRUNCATE parties;');
+runSql('SET FOREIGN_KEY_CHECKS=1');
+
+foreach (glob(DATA_DIR . '/partijen/*') as $partyPath) {
+  $name = str_replace('.json', '', basename($partyPath));
+
+  $data = parseFile($partyPath);
+
+  $party = new Party();
+  $party->setName($data['name']);
+  $party->setLongName($data['long_name']);
+  $em->persist($party);
+
+  // Store for internal reference when storing candidates.
+  $parties[$name] = $party;
+}
+
+foreach (glob(DATA_DIR . '/kandidaten/*') as $provincePath) {
+  $province = basename($provincePath);
+
+  foreach (glob($provincePath . '/*') as $partyPath) {
+    $partyName = basename($partyPath);
+
+    if (isset($parties[$partyName])) {
+      $party = $parties[$partyName];
+    } else {
+      file_put_contents('php://stderr', "Partij $partyName niet gevonden\n");
+      die();
+    }
+
+    foreach (glob($partyPath . '/*.json') as $candidatePath) {
+      $name = str_replace('.json', '', basename($candidatePath));
+      $data = parseFile($candidatePath);
+
+      if (empty($data['name'])) {
+        file_put_contents('php://stderr', "Naam niet opgegeven\n");
+        die();
+      }
+
+      $candidate = new Candidate();
+      $candidate->setName($data['name']);
+      $candidate->setProvince($province);
+      $candidate->setParty($party);
+      $candidate->setImageUrl("/data/kandidaten/$province/$partyName/$name.jpg");
+      $em->persist($candidate);
+    }
+  }
+}
+
+$em->flush();

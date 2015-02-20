@@ -11,7 +11,7 @@ class App {
 
   static function getEntityManager() {
     if (!self::$entityManager) {
-      $paths = array(__DIR__.'/../app/entity');
+      $paths = array(__DIR__.'/../app/entities');
       $isDevMode = getenv('ENV') == 'dev';
 
       $dbParams = array(
