@@ -48,6 +48,8 @@ define(['underscore', 'app/widget'], function (_, widget) {
         position: 'absolute',
         left: offset.left,
         top: offset.top,
+        width: this.$element.width(),
+        height: this.$element.height(),
         'will-change': 'opacity transform left top'
       }).appendTo('body');
 
@@ -130,6 +132,8 @@ define(['underscore', 'app/widget'], function (_, widget) {
             position: 'absolute',
             left: this.dragState.x0,
             top: this.dragState.y0,
+            width: this.$element.width(),
+            height: this.$element.height(),
             'will-change': 'opacity transform left top'
           }).appendTo('body');
 
@@ -209,7 +213,9 @@ define(['underscore', 'app/widget'], function (_, widget) {
     revert: function () {
       var animation = this._createAnimation(this.dragState.x0, function () {
         this.$element.css({
-          position: '', left: '', top: '',
+          position: '',
+          left: '', top: '',
+          width: '', height: '',
           'will-change': ''
         });
 

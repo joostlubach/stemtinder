@@ -1,11 +1,11 @@
 article.card {
-  position: relative;
+  position: absolute;
 
-  width: $card-width; height: $card-height;
+  top: 0; left: 0; right: 0;
 
   background: white;
 
-  .vote {
+  i.vote {
     position: absolute;
     top: 0; right: 0;
     margin: $large-space;
@@ -21,12 +21,15 @@ article.card {
   }
 
   figure {
+    // Make sure that the image is square.
+    position: relative;
+    padding-top: 100%;
+
     img {
+      @include fill;
       @include border-radius(7px 7px 0 0);
     }
     overflow: hidden;
-    width: $card-width - 2px;
-    height: $card-width - 2px;
   }
 
   border: 1px solid $border-color;
@@ -34,25 +37,24 @@ article.card {
 
   h2 {
     padding: $large-space;
-    height: $card-label-height;
-    font-size: $card-label-height - 4px;
+    font-size: 24px;
   }
 
   @include user-select(none);
 
-  @include max-width(480px) {
-    @include fluid($card-width, $card-height, $card-width);
-    figure {
-      top: 0; left: 0; right: 0;
-      width: auto;
-      height: $card-width / $card-height * 100%;
-    }
-    h2 {
-      top: $card-width / $card-height * 100%;
-      left: 0; right: 0;
-      font-size: 28px;
-      padding: 4%;
-    }
-  }
+  // @include max-width(480px) {
+  //   @include fluid($card-width, $card-height, $card-width);
+  //   figure {
+  //     top: 0; left: 0; right: 0;
+  //     width: auto;
+  //     height: $card-width / $card-height * 100%;
+  //   }
+  //   h2 {
+  //     top: $card-width / $card-height * 100%;
+  //     left: 0; right: 0;
+  //     font-size: 28px;
+  //     padding: 4%;
+  //   }
+  // }
 
 }

@@ -2,14 +2,25 @@
 
   background: white;
 
+  @include flex-column(center);
+
+  h1, h2 {
+    @include flex(0 0 auto);
+    padding: $large-space 0;
+  }
+  footer {
+    @include flex(0 0 auto);
+  }
+  div.logo {
+    @include flex(1 1 auto);
+  }
+
   h1 {
     width: 334px; height: 90px;
-    margin: $large-space auto 0;
   }
 
   h2 {
     width: 148px; height: 26px;
-    margin: $large-space auto 0;
   }
 
   p {
@@ -33,45 +44,32 @@
 
   footer.button {
     padding: $large-space;
-    width: $screen-width;
     text-align: center;
     button { display: inline-block; }
   }
 
   footer.branding {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
+    width: $screen-width;
     height: 102px;
   }
 
   @include max-width(480px) {
     h1 {
-      @include fluid(334px, 90px);
+      width: 267px; height: 72px;
     }
+
     h2 {
-      @include fluid(148px, 26px);
+      width: 118px; height: 21px;
     }
+
     p {
-      @include fluid(259px, 60px);
+      width: 207px; height: 48px;
+      margin: 3 * $large-space auto 0;
     }
     p.invalid {
-      @include fluid(328px, 230px);
+      width: 262px; height: 184px;
     }
-    footer.button {
-      position: absolute;
-      left: 0; right: 0;
-      bottom: 0;
-      width: auto;
 
-      padding-bottom: (102px + 3 * $large-space) / $screen-width * 100%;
-    }
-    footer.branding {
-      @include fluid($screen-width, 102px);
-
-      position: absolute;
-      left: 0; right: 0;
-      bottom: 0;
-    }
   }
 
 }

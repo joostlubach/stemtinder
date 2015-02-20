@@ -2,13 +2,23 @@
 
   background: white;
 
+  @include flex-column(center);
+
   header {
+    @include flex-column(center);
+    @include flex(0 0 auto);
     padding: $large-space 0;
+  }
+  .scroller {
+    @include flex(1 1 auto);
+    overflow: hidden;
+  }
+  footer {
+    @include flex(0 0 auto);
   }
 
   h1 {
     width: 334px; height: 90px;
-    margin: 0 auto;
   }
 
   h2 {
@@ -21,12 +31,17 @@
   }
 
   footer {
-    width: $screen-width; height: 102px;
+    width: $screen-width;
+    height: 102px;
+  }
+
+  .scroller {
+    overflow: auto;
+    width: 100%;
   }
 
   ul {
-    height: $screen-height - 90px - 26px - 102px - 5 * $large-space;
-    margin: $large-space #{5 * $large-space};
+    margin: $large-space #{3 * $large-space};
   }
 
   li {
@@ -63,37 +78,10 @@
 
   @include max-width(480px) {
     h1 {
-      @include fluid(334px, 90px);
-      z-index: 2;
+      width: 267px; height: 72px;
     }
     h2 {
-      @include fluid(233px, 26px);
-      z-index: 2;
-    }
-    header {
-      position: relative;
-      z-index: 2;
-      background: white;
-    }
-    footer {
-      z-index: 2;
-      @include fluid($screen-width, 102px);
-      position: absolute;
-      left: 0; right: 0;
-      bottom: 0;
-    }
-    ul {
-      z-index: 1;
-      height: auto;
-      margin: 0;
-      padding-left: #{3 * $large-space};
-      padding-right: #{3 * $large-space};
-      padding-top: 43%;
-      padding-bottom: 21.25%;
-    }
-    .scroller {
-      @include fill;
-      overflow: auto;
+      width: 186px; height: 21px;
     }
   }
 

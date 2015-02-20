@@ -10,6 +10,8 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     $('#buttons').on('click', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
 
+    $('#result').hide();
+
     this.provinceChooser = new ProvinceChooser('#province-chooser');
     this.provinceChooser.on('choose', _.bind(this._onProvinceChoose, this));
 
@@ -30,6 +32,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.provinceChooser.reset();
 
       this.provinceChooser.$element.fadeIn(function () {
+        $(this).css('display', '');
         $('#result').hide();
       });
     },
@@ -101,11 +104,15 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       var parties = this.winningParties();
 
       if (parties.length === 0) {
-        $('#result').html(this.invalidResultTemplate({party: null})).fadeIn();
+        $('#result').html(this.invalidResultTemplate({party: null})).fadeIn(function () {
+          $(this).css('display', '');
+        });
       } else {
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);
-        $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn();
+        $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn(function () {
+          $(this).css('display', '');
+        });
       }
     },
 

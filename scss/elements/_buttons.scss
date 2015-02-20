@@ -19,12 +19,12 @@ button.again {
 
 button.vote {
   text-indent: -99999px;
-  width: 100px; height: 100px;
+  width: 70px; height: 70px;
 
-  @include border-radius(100px);
-  border: 10px solid #e2e1e1;
+  @include border-radius(70px);
+  border: 8px solid #e2e1e1;
   background: white center center no-repeat;
-  background-size: 50px 50px;
+  background-size: 35px 35px;
 
   &.cross {
     background-image: url(../img/cross.png);
@@ -36,5 +36,4 @@ button.vote {
   &:active {
     background-color: #e2e1e1;
   }
-
 }
