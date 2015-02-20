@@ -1,10 +1,11 @@
-define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html'], function (H, Stack, ProvinceChooser, ResultTemplate) {
+define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html'], function (H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate) {
 
   var App = function () {
     this.votes = {};
     this.parties = {};
     this.passesByParty = {};
     this.resultTemplate = H.compile(ResultTemplate);
+    this.invalidResultTemplate = H.compile(InvalidResultTemplate);
 
     $('#buttons').on('click', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
@@ -15,6 +16,9 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     this.stack = new Stack('#stack');
     this.stack.on('fail pass', '.card', _.bind(this._onFailPass, this));
     this.stack.on('stackend', _.bind(this._onStackEnd, this));
+
+    // this.load('Flevoland');
+    // this.provinceChooser.$element.hide();
   };
 
   App.prototype = {
@@ -97,7 +101,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       var parties = this.winningParties();
 
       if (parties.length === 0) {
-        $('#result').html(this.emptyResultTemplate({party: null})).fadeIn();
+        $('#result').html(this.invalidResultTemplate({party: null})).fadeIn();
       } else {
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);

@@ -1,17 +1,11 @@
-$screen-width: 480px;
-$screen-height: 720px;
-
-$card-label-height: 40px;
-
-$card-width: 401px;
-$card-height: 401px + 2 * $large-space + $card-label-height; // Room for label
-
 html, body {
   height: 100%;
 }
 
-body {
-  overflow: hidden;
+@include max-width(480px) {
+  body {
+    overflow: hidden;
+  }
 }
 
 #logo {
@@ -20,8 +14,11 @@ body {
 }
 
 #screen {
+  min-width: 320px;
+
   position: absolute;
   left: 50%; top: 50%;
+  bottom: auto; right: auto;
   margin-left: -$screen-width / 2;
   margin-top: -$screen-height / 2;
 
@@ -46,7 +43,7 @@ body {
   @include clearfix;
 
   margin: 22px auto;
-  width: 250px;
+  width: 224px;
 
   :first-child {
     float: left;
@@ -62,4 +59,25 @@ body {
 
 #result {
   display: none;
+}
+
+@include max-width(480px) {
+
+  #screen {
+    @include fill;
+    margin-left: 0; margin-top: 0;
+    width: auto; height: auto;
+  }
+
+  #logo {
+    @include fluid(241px, 65px);
+  }
+
+  #stack {
+    @include fluid($card-width, $card-height);
+    margin-left: 0; margin-top: 0;
+    margin-left: -($card-width / $screen-width * 100%) / 2;
+    margin-top: -($card-height / $screen-width * 100%) / 2;
+  }
+
 }

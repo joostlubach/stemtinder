@@ -2,9 +2,13 @@
 
   background: white;
 
+  header {
+    padding: $large-space 0;
+  }
+
   h1 {
     width: 334px; height: 90px;
-    margin: $large-space auto 0;
+    margin: 0 auto;
   }
 
   h2 {
@@ -16,18 +20,13 @@
     text-align: center;
   }
 
-  ul {
-    height: $screen-height - 90px - 26px - 102px - 4 * $large-space;
-  }
-
   footer {
     width: $screen-width; height: 102px;
   }
 
   ul {
-
+    height: $screen-height - 90px - 26px - 102px - 5 * $large-space;
     margin: $large-space #{5 * $large-space};
-
   }
 
   li {
@@ -62,5 +61,40 @@
     &.selected .check i { display: block; }
   }
 
+  @include max-width(480px) {
+    h1 {
+      @include fluid(334px, 90px);
+      z-index: 2;
+    }
+    h2 {
+      @include fluid(233px, 26px);
+      z-index: 2;
+    }
+    header {
+      position: relative;
+      z-index: 2;
+      background: white;
+    }
+    footer {
+      z-index: 2;
+      @include fluid($screen-width, 102px);
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0;
+    }
+    ul {
+      z-index: 1;
+      height: auto;
+      margin: 0;
+      padding-left: #{3 * $large-space};
+      padding-right: #{3 * $large-space};
+      padding-top: 43%;
+      padding-bottom: 21.25%;
+    }
+    .scroller {
+      @include fill;
+      overflow: auto;
+    }
+  }
 
 }

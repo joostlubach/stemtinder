@@ -39,6 +39,8 @@ define(['underscore', 'app/widget'], function (_, widget) {
     dismiss: function (vote) {
       var offset = this.$element.offset();
 
+      $('body').css('overflow', 'hidden');
+
       this.$element.removeClass('fail pass');
       this.$element.addClass(vote);
 
@@ -51,6 +53,7 @@ define(['underscore', 'app/widget'], function (_, widget) {
 
       var animation = this._createAnimation(offset.left, function () {
         this.$element.remove();
+        $('body').css('overflow', '');
       });
 
       this.$element.animate({
@@ -138,6 +141,8 @@ define(['underscore', 'app/widget'], function (_, widget) {
         var dx = x - this.dragState.mx0,
             dy = y - this.dragState.my0;
 
+        $('body').css('overflow', 'hidden');
+
         this.dragState.x = this.dragState.x0 + dx;
         this.dragState.y = this.dragState.y0 + dy;
 
@@ -188,6 +193,7 @@ define(['underscore', 'app/widget'], function (_, widget) {
         this.placeBack();
         this.$element.trigger(evt);
         this.$element.remove();
+        $('body').css('overflow', '');
       });
 
       this.$element.animate({
@@ -209,6 +215,7 @@ define(['underscore', 'app/widget'], function (_, widget) {
 
         this.placeBack();
         this.$element.removeClass('pass fail');
+        $('body').css('overflow', '');
       });
 
       this.$element.animate({

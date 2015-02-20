@@ -20,8 +20,11 @@ article.card {
     background-image: url(../img/heart.png);
   }
 
-  figure img {
-    @include border-radius(7px 7px 0 0);
+  figure {
+    img {
+      @include border-radius(7px 7px 0 0);
+    }
+    overflow: hidden;
     width: $card-width - 2px;
     height: $card-width - 2px;
   }
@@ -36,5 +39,20 @@ article.card {
   }
 
   @include user-select(none);
+
+  @include max-width(480px) {
+    @include fluid($card-width, $card-height, $card-width);
+    figure {
+      top: 0; left: 0; right: 0;
+      width: auto;
+      height: $card-width / $card-height * 100%;
+    }
+    h2 {
+      top: $card-width / $card-height * 100%;
+      left: 0; right: 0;
+      font-size: 28px;
+      padding: 4%;
+    }
+  }
 
 }

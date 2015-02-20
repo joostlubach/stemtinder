@@ -3,3 +3,11 @@ $large-space: 16px;
 
 $fg-color: #123b5c;
 $border-color: #ccc;
+
+$screen-width: 480px;
+$screen-height: 720px;
+
+$card-label-height: 40px;
+
+$card-width: 401px;
+$card-height: 401px + 2 * $large-space + $card-label-height; // Room for label

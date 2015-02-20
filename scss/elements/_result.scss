@@ -16,6 +16,9 @@
     width: 259px; height: 60px;
     margin: 3 * $large-space auto 0;
   }
+  p.invalid {
+    width: 328px; height: 230px;
+  }
 
   h1, h2, p {
     text-align: center;
@@ -39,6 +42,36 @@
     position: absolute;
     left: 0; right: 0; bottom: 0;
     height: 102px;
+  }
+
+  @include max-width(480px) {
+    h1 {
+      @include fluid(334px, 90px);
+    }
+    h2 {
+      @include fluid(148px, 26px);
+    }
+    p {
+      @include fluid(259px, 60px);
+    }
+    p.invalid {
+      @include fluid(328px, 230px);
+    }
+    footer.button {
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0;
+      width: auto;
+
+      padding-bottom: (102px + 3 * $large-space) / $screen-width * 100%;
+    }
+    footer.branding {
+      @include fluid($screen-width, 102px);
+
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0;
+    }
   }
 
 }
