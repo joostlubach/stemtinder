@@ -1,7 +1,7 @@
 #!/usr/local/bin/php
 <?php
 
-define('DATA_DIR', __DIR__ . '/../data');
+define('DATA_DIR', __DIR__ . '/../htdocs/data');
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -37,7 +37,7 @@ runSql('TRUNCATE candidates;');
 runSql('TRUNCATE parties;');
 runSql('SET FOREIGN_KEY_CHECKS=1');
 
-foreach (glob(DATA_DIR . '/partijen/*') as $partyPath) {
+foreach (glob(DATA_DIR . '/partijen/*.json') as $partyPath) {
   $name = str_replace('.json', '', basename($partyPath));
 
   $data = parseFile($partyPath);

@@ -13,6 +13,7 @@ class App {
     if (!self::$entityManager) {
       $paths = array(__DIR__.'/../app/entities');
       $isDevMode = getenv('ENV') == 'dev';
+      $proxyDir = __DIR__ . '/../tmp';
 
       $dbParams = array(
           'driver'   => 'pdo_mysql',
@@ -22,7 +23,7 @@ class App {
           'dbname'   => getenv('DB_DATABASE')
       );
 
-      $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+      $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, $proxyDir);
       self::$entityManager = EntityManager::create($dbParams, $config);
     }
 

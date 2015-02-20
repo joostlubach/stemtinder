@@ -19,7 +19,7 @@ body {
   @include justify-content(space-between);
 
   #logo  { @include flex(0 0 auto); }
-  #stack { @include flex(1 1 0); }
+  #stack { @include flex(1 1 auto); }
   #buttons { @include flex(0 0 auto); }
 }
 

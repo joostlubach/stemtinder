@@ -5,10 +5,10 @@ require 'sass-globbing'
 
 # Set this to the root of your project when deployed:
 http_path = "."
-css_dir = "css"
+css_dir = "htdocs/css"
 sass_dir = "scss"
-images_dir = "img"
-javascripts_dir = "js"
+images_dir = "htdocs/img"
+javascripts_dir = "htdocs/js"
 cache_path = 'tmp/cache/sass'
 
 # You can select your preferred output style here (can be overridden via the command line):

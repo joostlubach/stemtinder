@@ -21,7 +21,7 @@ class Candidate {
   private $province;
 
   /**
-   * @ManyToOne(targetEntity="party", inversedBy="candidates")
+   * @ManyToOne(targetEntity="Party", inversedBy="candidates")
    * @JoinColumn(name="party_id", referencedColumnName="id")
    */
   private $party;
