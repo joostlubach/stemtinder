@@ -14,13 +14,13 @@ define(['handlebars', 'app/widget', 'text!templates/card.html'], function (H, Wi
       this.on('fail pass', '.card', _.bind(this._onFailPass, this));
     },
 
-    load: function (province) {
-      var self = this;
-      return $.getJSON('/candidates/stack?province=' + province).then(function (candidates) {
-        self.candidates = candidates;
+    setCandidates: function (candidates) {
+      this.$element.empty();
 
-        self.prependSlice();
-      });
+      this.candidates = candidates;
+      this.sliceStart = 0;
+      this.currentIndex = 0;
+      this.prependSlice();
     },
 
     prependSlice: function () {

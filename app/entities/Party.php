@@ -23,6 +23,11 @@ class Party {
   private $longName;
 
   /**
+   * @Column(name="logo_url", type="string")
+   */
+  private $logoUrl;
+
+  /**
    * @OneToMany(targetEntity="Candidate", mappedBy="party")
    */
   private $candidates;
@@ -44,6 +49,14 @@ class Party {
   }
   public function setLongName($value) {
     $this->longName = $value;
+    return $this;
+  }
+
+  public function getLogoUrl() {
+    return $this->logoUrl;
+  }
+  public function setLogoUrl($value) {
+    $this->logoUrl = $value;
     return $this;
   }
 

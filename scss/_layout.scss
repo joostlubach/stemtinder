@@ -56,6 +56,10 @@ body {
   }
 }
 
-#province-chooser {
+#province-chooser, #result {
   @include fill;
+}
+
+#result {
+  display: none;
 }

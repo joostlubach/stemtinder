@@ -7,6 +7,10 @@ define(['underscore', 'app/widget'], function (_, Widget) {
       this.on('click', 'li', _.bind(this._onItemClick, this));
     },
 
+    reset: function () {
+      this.find('li').removeClass('selected');
+    },
+
     _onItemClick: function (e) {
       var item     = $(e.currentTarget),
           province = item.attr('data-province');

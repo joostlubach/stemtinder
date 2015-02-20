@@ -1,0 +1,44 @@
+#result {
+
+  background: white;
+
+  h1 {
+    width: 334px; height: 90px;
+    margin: $large-space auto 0;
+  }
+
+  h2 {
+    width: 148px; height: 26px;
+    margin: $large-space auto 0;
+  }
+
+  p {
+    width: 259px; height: 60px;
+    margin: 3 * $large-space auto 0;
+  }
+
+  h1, h2, p {
+    text-align: center;
+  }
+
+  figure {
+    text-align: center;
+    width: 200px; height: 200px;
+    background: #e2e1e1;
+    margin: $large-space auto 0;
+  }
+
+  footer.button {
+    padding: $large-space;
+    width: $screen-width;
+    text-align: center;
+    button { display: inline-block; }
+  }
+
+  footer.branding {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 102px;
+  }
+
+}

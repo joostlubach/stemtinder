@@ -11,15 +11,36 @@ class CandidatesController extends Controller {
       ->getQuery();
 
     $candidates = $query->getResult();
+    $parties = array();
 
     shuffle($candidates);
-    return array_map(function ($candidate) {
-      return array(
+
+    $data = array(
+      'candidates' => array(),
+      'parties'    => array()
+    );
+
+    foreach ($candidates as $candidate) {
+      $party = $candidate->getParty();
+      $parties[$party->getId()] = $party;
+
+      $data['candidates'][] = array(
         'id'        => $candidate->getId(),
         'name'      => $candidate->getName(),
+        'party_id'  => $party->getId(),
         'image_url' => $candidate->getImageUrl()
       );
-    }, $candidates);
+    }
+
+    foreach ($parties as $id => $party) {
+      $data['parties'][] = array(
+        'id'        => $party->getId(),
+        'name'      => $party->getLongName(),
+        'logo_url'  => $party->getLogoUrl()
+      );
+    }
+
+    return $data;
   }
 
 }

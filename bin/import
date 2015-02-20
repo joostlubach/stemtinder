@@ -31,6 +31,8 @@ function parseFile($path) {
 }
 
 runSql('SET FOREIGN_KEY_CHECKS=0');
+runSql('TRUNCATE results;');
+runSql('TRUNCATE votes;');
 runSql('TRUNCATE candidates;');
 runSql('TRUNCATE parties;');
 runSql('SET FOREIGN_KEY_CHECKS=1');
@@ -43,6 +45,7 @@ foreach (glob(DATA_DIR . '/partijen/*') as $partyPath) {
   $party = new Party();
   $party->setName($data['name']);
   $party->setLongName($data['long_name']);
+  $party->setLogoUrl("/data/partijen/$name.png");
   $em->persist($party);
 
   // Store for internal reference when storing candidates.

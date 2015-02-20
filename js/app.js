@@ -1,10 +1,13 @@
-define(['app/stack', 'app/province-chooser'], function (Stack, ProvinceChooser) {
+define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html'], function (H, Stack, ProvinceChooser, ResultTemplate) {
 
   var App = function () {
     this.votes = {};
-    this.province = 'Flevoland';
+    this.parties = {};
+    this.passesByParty = {};
+    this.resultTemplate = H.compile(ResultTemplate);
 
     $('#buttons').on('click', '[data-vote]', _.bind(this._onVoteButtonClick, this));
+    $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
 
     this.provinceChooser = new ProvinceChooser('#province-chooser');
     this.provinceChooser.on('choose', _.bind(this._onProvinceChoose, this));
@@ -12,16 +15,49 @@ define(['app/stack', 'app/province-chooser'], function (Stack, ProvinceChooser) 
     this.stack = new Stack('#stack');
     this.stack.on('fail pass', '.card', _.bind(this._onFailPass, this));
     this.stack.on('stackend', _.bind(this._onStackEnd, this));
-
-    // this.provinceChooser.province = 'Zuid-Holland';
-    // this._onProvinceChoose();
   };
 
   App.prototype = {
 
+    reset: function () {
+      this.votes = {};
+      this.parties = {};
+      this.passesByParty = {};
+      this.provinceChooser.reset();
+
+      this.provinceChooser.$element.fadeIn(function () {
+        $('#result').hide();
+      });
+    },
+
     vote: function (vote) {
       var candidate = this.stack.find('.card:last-child').data('candidate');
       this.votes[candidate.id] = vote;
+
+      if (vote == 'pass') {
+        var partyId = candidate.party_id;
+        if (!this.passesByParty[partyId]) {
+          this.passesByParty[partyId] = 0;
+        }
+        this.passesByParty[partyId]++;
+      }
+    },
+
+    load: function (province) {
+      var self = this;
+
+      return $.getJSON('/candidates?province=' + province).then(function (data) {
+        self.parties = self.indexById(data.parties);
+        self.stack.setCandidates(data.candidates);
+      });
+    },
+
+    indexById: function (array) {
+      var index = {};
+      _.each(array, function (item) {
+        index[item.id] = item;
+      });
+      return index;
     },
 
     save: function () {
@@ -29,7 +65,7 @@ define(['app/stack', 'app/province-chooser'], function (Stack, ProvinceChooser) 
         '/results',
         JSON.stringify({
           result: {
-            province: this.province,
+            province: this.provinceChooser.province,
             votes:    this.votes
           }
         }),
@@ -38,8 +74,43 @@ define(['app/stack', 'app/province-chooser'], function (Stack, ProvinceChooser) 
       );
     },
 
+    winningParties: function () {
+      var winningPartyIds = [],
+          maxVotes = 0;
+
+      _.each(this.passesByParty, function (votes, partyId) {
+        if (votes > maxVotes) {
+          winningPartyIds = [partyId];
+          maxVotes = votes;
+        }
+        if (votes == maxVotes) {
+          winningPartyIds.push(partyId);
+        }
+      });
+
+      return _.map(winningPartyIds, function (id) {
+        return this.parties[id];
+      }, this);
+    },
+
+    displayResult: function () {
+      var parties = this.winningParties();
+
+      if (parties.length === 0) {
+        $('#result').html(this.emptyResultTemplate({party: null})).fadeIn();
+      } else {
+        // Kies willekeurige winnende partij. Haha.
+        var idx = Math.floor(Math.random() * parties.length);
+        $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn();
+      }
+    },
+
+    _onAgainButtonClick: function () {
+      this.reset();
+    },
+
     _onProvinceChoose: function () {
-      this.stack.load(this.provinceChooser.province);
+      this.load(this.provinceChooser.province);
 
       this.provinceChooser.$element.animate({
         top: '-=300',
@@ -68,6 +139,7 @@ define(['app/stack', 'app/province-chooser'], function (Stack, ProvinceChooser) 
 
     _onStackEnd: function (e) {
       this.save();
+      this.displayResult();
     }
 
   };
