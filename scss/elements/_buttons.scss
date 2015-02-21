@@ -14,11 +14,15 @@ button.again, button.share {
 
   i {
     display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
   }
 
   i.facebook {
-    width: 20px; height: 20px;
+    width: 24px; height: 24px;
     background: url(../img/facebook.png);
+    background-size: 24px 24px;
   }
 
   &:active {
