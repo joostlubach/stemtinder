@@ -37,9 +37,10 @@ class Controller {
     try {
       $parameters = array_merge($this->loadParameters(), $routeParameters);
       $result = call_user_func(array($this, $action), $parameters);
-      $json = json_encode($result);
-
-      echo str_replace('\\/', '/', $json);
+      if ($result) {
+        $json = json_encode($result);
+        echo str_replace('\\/', '/', $json);
+      }
     } catch (HttpException $ex) {
 
       $this->handleHttpException($ex);

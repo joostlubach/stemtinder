@@ -31,6 +31,11 @@
     width: 328px; height: 230px;
   }
 
+  .result {
+    width: 200px; height: 200px;
+    margin: $large-space auto 0;
+  }
+
   h1, h2, p {
     text-align: center;
   }
@@ -38,8 +43,15 @@
   figure {
     text-align: center;
     width: 200px; height: 200px;
-    background: #e2e1e1;
-    margin: $large-space auto 0;
+  }
+
+  .small-parties {
+    figure {
+      width: 50px - $small-space; height: 50px - $small-space;
+      float: left;
+      margin-right: $small-space;
+      margin-bottom: $small-space;
+    }
   }
 
   footer.button {

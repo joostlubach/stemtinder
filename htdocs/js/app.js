@@ -1,12 +1,14 @@
-define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html'], function (H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate) {
+define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html', 'text!templates/small-party-result.html'], function (H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate, SmallPartyResultTemplate) {
 
   var App = function () {
     this.passes = 0;
     this.votes = {};
     this.parties = {};
+    this.smallParties = [];
     this.passesByParty = {};
     this.resultTemplate = H.compile(ResultTemplate);
     this.invalidResultTemplate = H.compile(InvalidResultTemplate);
+    this.smallPartyResultTemplate = H.compile(SmallPartyResultTemplate);
 
     $('#buttons').on('click', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
@@ -19,9 +21,6 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     this.stack = new Stack('#stack');
     this.stack.on('fail pass', '.card', _.bind(this._onFailPass, this));
     this.stack.on('stackend', _.bind(this._onStackEnd, this));
-
-    // this.load('Flevoland');
-    // this.provinceChooser.$element.hide();
   };
 
   App.prototype = {
@@ -30,6 +29,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.passes = 0;
       this.votes = {};
       this.parties = {};
+      this.smallParties = [];
       this.passesByParty = {};
       this.provinceChooser.reset();
 
@@ -47,6 +47,10 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         this.passes++;
 
         var partyId = candidate.party_id;
+        if (this.parties[partyId].small) {
+          partyId = 'small';
+        }
+
         if (!this.passesByParty[partyId]) {
           this.passesByParty[partyId] = 0;
         }
@@ -58,9 +62,62 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       var self = this;
 
       return $.getJSON('/candidates?province=' + province).then(function (data) {
-        self.parties = self.indexById(data.parties);
-        self.stack.setCandidates(data.candidates);
+        self.processData(data);
       });
+    },
+
+    processData: function (data) {
+      this.parties = this.indexById(data.parties);
+
+      this.keepCandidates(data.candidates, 5);
+      this.stack.setCandidates(this.candidates);
+    },
+
+    keepCandidates: function (candidates, max) {
+      this.candidates   = [];
+      this.smallParties = [];
+
+      var partyCount = this.countCandidatesByParty(candidates);
+
+      // Mark small parties.
+      _.each(partyCount, function (count, partyId) {
+        if (count < max) {
+          this.parties[partyId].small = true;
+          this.smallParties.push(this.parties[partyId]);
+        } else {
+          this.parties[partyId].small = false;
+        }
+      }, this);
+
+      // Now, keep only a maximum number of candidates per party.
+      partyCount = {};
+      _.each(candidates, function (candidate) {
+        var partyId = candidate.party_id;
+        if (this.parties[partyId].small) {
+          partyId = 'small';
+        }
+
+        if (!partyCount[partyId]) {
+          partyCount[partyId] = 0;
+        }
+
+        if (partyCount[partyId] < max) {
+          this.candidates.push(candidate);
+          partyCount[partyId]++;
+        }
+      }, this);
+    },
+
+    countCandidatesByParty: function (candidates) {
+      var partyCount = {};
+      _.each(candidates, function (candidate) {
+        if (!partyCount[candidate.party_id]) {
+          partyCount[candidate.party_id] = 0;
+        }
+        partyCount[candidate.party_id]++;
+      });
+
+      return partyCount;
     },
 
     indexById: function (array) {
@@ -93,30 +150,40 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         if (votes > maxVotes) {
           winningPartyIds = [partyId];
           maxVotes = votes;
-        }
-        if (votes == maxVotes) {
+        } else if (votes == maxVotes) {
           winningPartyIds.push(partyId);
         }
       });
 
       return _.map(winningPartyIds, function (id) {
-        return this.parties[id];
+        if (id == 'small') {
+          return 'small';
+        } else {
+          return this.parties[id];
+        }
       }, this);
     },
 
     displayResult: function () {
-      if (this.passes === 0 || this.passes == this.stack.candidates.length) {
+      if (this.passes === 0 || this.passes == this.candidates.length) {
         $('#result').html(this.invalidResultTemplate({party: null})).fadeIn(function () {
           $(this).css('display', '');
         });
       } else {
         var parties = this.winningParties();
+        parties = ['small'];
 
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);
-        $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn(function () {
-          $(this).css('display', '');
-        });
+        if (parties[idx] == 'small') {
+          $('#result').html(this.smallPartyResultTemplate({parties: this.smallParties})).fadeIn(function () {
+            $(this).css('display', '');
+          });
+        } else {
+          $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn(function () {
+            $(this).css('display', '');
+          });
+        }
       }
     },
 
