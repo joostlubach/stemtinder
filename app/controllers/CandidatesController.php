@@ -6,7 +6,7 @@ class CandidatesController extends Controller {
     $province = $parameters['province'];
     $cachePath = __DIR__ . "/../../tmp/cache/candidates/$province.json";
 
-    if (file_exists($cachePath) && time() - filemtime($cachePath) < 60) {
+    if (file_exists($cachePath) && time() - filemtime($cachePath) < 10) {
       header('Content-Type: application/json');
       header('X-Cached: true');
       readfile($cachePath);

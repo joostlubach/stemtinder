@@ -30,9 +30,11 @@
   p.invalid {
     width: 328px; height: 230px;
   }
+  p.small-party {
+    width: 407px; height: 161px;
+  }
 
   .result {
-    width: 200px; height: 200px;
     margin: $large-space auto 0;
   }
 
@@ -46,8 +48,11 @@
   }
 
   .small-parties {
+    width: 200px; height: 200px;
+
     figure {
-      width: 50px - $small-space; height: 50px - $small-space;
+      font-size: 6px;
+      width: 66px - $small-space; height: 66px - $small-space;
       float: left;
       margin-right: $small-space;
       margin-bottom: $small-space;
