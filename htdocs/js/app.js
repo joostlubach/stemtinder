@@ -13,7 +13,8 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
 
     $('#buttons').on('click touchstart', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
-    $('#result').on('click', '[data-action="share"]', _.bind(this._onShareButtonClick, this));
+    $('#result').on('click', '[data-action="share-facebook"]', _.bind(this._onFacebookShareButtonClick, this));
+    $('#result').on('click', '[data-action="share-twitter"]', _.bind(this._onTwitterShareButtonClick, this));
 
     $('#result').hide();
 
@@ -241,7 +242,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       }
     },
 
-    _onShareButtonClick: function (e) {
+    _onFacebookShareButtonClick: function (e) {
       if (this.winningParty == 'small') {
         FB.ui({
           method: 'feed',
@@ -263,8 +264,21 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       }
 
       return false;
-    }
+    },
 
+    _onTwitterShareButtonClick: function (e) {
+      var params = {
+        url: 'http://stemtinder.nl'
+      };
+      if (this.winningParty == 'small') {
+        params.text = 'Ik vind de lokale partijen het aantrekkelijkst in ' + this.provinceChooser.province + ' op Stemtinder. #zml #stemtinder';
+      } else {
+        params.text = 'Ik vind ' + this.winningParty.name + ' de aantrekkelijkste partij van ' + this.provinceChooser.province + ' op Stemtinder. #zml #stemtinder';
+      }
+
+      window.open('https://twitter.com/intent/tweet?' + $.param(params), 'width=550,height=420,scrollbars=yes,resizable=yes,toolbar=no,location=yes');
+      return false;
+    }
   };
 
   return App;
