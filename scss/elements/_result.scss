@@ -28,10 +28,12 @@
     margin: 3 * $large-space auto 0;
   }
   p.invalid {
-    width: 328px; height: 230px;
+    width: 277px; height: 194px;
+    margin: $large-space auto 0;
   }
   p.small-party {
-    width: 407px; height: 161px;
+    width: 199px; height: 51px;
+    margin-bottom: $large-space;
   }
 
   .result {

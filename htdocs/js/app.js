@@ -10,7 +10,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     this.invalidResultTemplate = H.compile(InvalidResultTemplate);
     this.smallPartyResultTemplate = H.compile(SmallPartyResultTemplate);
 
-    $('#buttons').on('click', '[data-vote]', _.bind(this._onVoteButtonClick, this));
+    $('#buttons').on('click touchstart', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
 
     $('#result').hide();
@@ -69,7 +69,11 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     processData: function (data) {
       this.parties = this.indexById(data.parties);
 
-      this.keepCandidates(data.candidates, 5);
+      if (this.provinceChooser.province == 'Flevoland' || this.provinceChooser.province == 'Gelderland') {
+        this.keepCandidates(data.candidates, 3);
+      } else {
+        this.keepCandidates(data.candidates, 5);
+      }
       this.stack.setCandidates(this.candidates);
     },
 
@@ -213,6 +217,8 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.vote(vote);
       this.stack.find('.card:last-child').widget('card').dismiss(vote);
       this.stack.nextCard();
+
+      return false;
     },
 
     _onFailPass: function (e) {
