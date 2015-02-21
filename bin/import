@@ -23,7 +23,8 @@ function parseFile($path) {
   $contents = file_get_contents($path);
   $contents = preg_replace('/“/', '"', $contents);
   $contents = preg_replace('/”/', '"', $contents);
-  $contents = preg_replace('/"age":\s+\n/', '"age": null', $contents);
+  $contents = preg_replace('/"age":\s+\n/', "\"age\": null\n", $contents);
+  $contents = preg_replace('/"age": null\}/', "\"age\": null\n}", $contents);
 
   file_put_contents($path, $contents);
 
@@ -42,11 +43,20 @@ foreach (glob(DATA_DIR . '/partijen/*.json') as $partyPath) {
 
   $data = parseFile($partyPath);
 
+  if (empty($data['name'])) {
+    file_put_contents('php://stderr', "Naam niet opgegeven\n");
+    die();
+  }
+
   $party = new Party();
   $party->setName($data['name']);
   $party->setLongName($data['long_name']);
-  $party->setLogoUrl("/data/partijen/$name.png");
+  $party->setLogoUrl("/data/partijen/$name.jpg");
   $em->persist($party);
+
+  if (!file_exists(DATA_DIR . '/..' . $party->getLogoUrl())) {
+    file_put_contents('php://stderr', "Logo {$party->getLogoUrl()} niet gevonden\n");
+  }
 
   // Store for internal reference when storing candidates.
   $parties[$name] = $party;
@@ -80,6 +90,11 @@ foreach (glob(DATA_DIR . '/kandidaten/*') as $provincePath) {
       $candidate->setParty($party);
       $candidate->setImageUrl("/data/kandidaten/$province/$partyName/$name.jpg");
       $em->persist($candidate);
+
+      if (!file_exists(DATA_DIR . '/..' . $candidate->getImageUrl())) {
+        file_put_contents('php://stderr', "Foto {$candidate->getImageUrl()} niet gevonden\n");
+      }
+
     }
   }
 }
