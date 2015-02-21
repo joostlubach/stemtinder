@@ -42,19 +42,4 @@ article.card {
 
   @include user-select(none);
 
-  // @include max-width(480px) {
-  //   @include fluid($card-width, $card-height, $card-width);
-  //   figure {
-  //     top: 0; left: 0; right: 0;
-  //     width: auto;
-  //     height: $card-width / $card-height * 100%;
-  //   }
-  //   h2 {
-  //     top: $card-width / $card-height * 100%;
-  //     left: 0; right: 0;
-  //     font-size: 28px;
-  //     padding: 4%;
-  //   }
-  // }
-
 }

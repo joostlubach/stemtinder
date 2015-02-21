@@ -75,3 +75,29 @@ body {
 #province-chooser, #result {
   @include fill;
 }
+
+
+
+html.no-flexbox {
+
+  #screen {
+    width: 320px; height: 568px;
+    margin: $large-space auto;
+  }
+
+  h1 {
+    padding-top: $large-space;
+  }
+
+  #stack {
+    margin-top: 2 * $large-space;
+    width: $card-width * 0.7;
+    height: $card-width * 0.7 + 70px;
+  }
+
+  #buttons {
+    width: 210px;
+    margin: 0 auto;
+  }
+
+}
