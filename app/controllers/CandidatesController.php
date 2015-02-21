@@ -3,44 +3,57 @@
 class CandidatesController extends Controller {
 
   public function stack($parameters) {
-    $query = $this->em->createQueryBuilder()
-      ->select('c')
-      ->from('Candidate', 'c')
-      ->where('c.province = ?1')
-      ->setParameter(1, $parameters['province'])
-      ->getQuery();
+    $province = $parameters['province'];
+    $cachePath = __DIR__ . "/../../tmp/cache/candidates/$province.json";
 
-    $candidates = $query->getResult();
-    $parties = array();
+    if (file_exists($cachePath) && time() - filemtime($cachePath) < 60) {
+      header('Content-Type: application/json');
+      header('X-Cached: true');
+      readfile($cachePath);
+    } else {
+      header('X-Cached: false');
 
-    shuffle($candidates);
+      $query = $this->em->createQueryBuilder()
+        ->select('c')
+        ->from('Candidate', 'c')
+        ->where('c.province = ?1')
+        ->setParameter(1, $parameters['province'])
+        ->getQuery();
 
-    $data = array(
-      'candidates' => array(),
-      'parties'    => array()
-    );
+      $candidates = $query->getResult();
+      $parties = array();
 
-    foreach ($candidates as $candidate) {
-      $party = $candidate->getParty();
-      $parties[$party->getId()] = $party;
+      shuffle($candidates);
 
-      $data['candidates'][] = array(
-        'id'        => $candidate->getId(),
-        'name'      => $candidate->getName(),
-        'party_id'  => $party->getId(),
-        'image_url' => $candidate->getImageUrl()
+      $data = array(
+        'candidates' => array(),
+        'parties'    => array()
       );
-    }
 
-    foreach ($parties as $id => $party) {
-      $data['parties'][] = array(
-        'id'        => $party->getId(),
-        'name'      => $party->getLongName(),
-        'logo_url'  => $party->getLogoUrl()
-      );
-    }
+      foreach ($candidates as $candidate) {
+        $party = $candidate->getParty();
+        $parties[$party->getId()] = $party;
 
-    return $data;
+        $data['candidates'][] = array(
+          'id'        => $candidate->getId(),
+          'name'      => $candidate->getName(),
+          'party_id'  => $party->getId(),
+          'image_url' => $candidate->getImageUrl()
+        );
+      }
+
+      foreach ($parties as $id => $party) {
+        $data['parties'][] = array(
+          'id'        => $party->getId(),
+          'name'      => $party->getLongName(),
+          'logo_url'  => $party->getLogoUrl()
+        );
+      }
+
+      file_put_contents($cachePath, json_encode($data));
+
+      return $data;
+    }
   }
 
 }
