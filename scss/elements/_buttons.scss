@@ -3,7 +3,7 @@ button {
   font-size: inherit;
 }
 
-button.again {
+button.again, button.share {
   @include border-radius(6px);
   border: 6px solid #e2e1e1;
   padding: $small-space;
@@ -11,6 +11,15 @@ button.again {
 
   color: $fg-color;
   background: none;
+
+  i {
+    display: inline-block;
+  }
+
+  i.facebook {
+    width: 20px; height: 20px;
+    background: url(../img/facebook.png);
+  }
 
   &:active {
     background-color: #e2e1e1;

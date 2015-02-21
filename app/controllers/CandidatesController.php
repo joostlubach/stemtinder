@@ -36,7 +36,7 @@ class CandidatesController extends Controller {
 
         $data['candidates'][] = array(
           'id'        => $candidate->getId(),
-          'name'      => $candidate->getName(),
+          'name'      => utf8_encode($candidate->getName()),
           'party_id'  => $party->getId(),
           'image_url' => $candidate->getImageUrl()
         );
@@ -45,12 +45,12 @@ class CandidatesController extends Controller {
       foreach ($parties as $id => $party) {
         $data['parties'][] = array(
           'id'        => $party->getId(),
-          'name'      => $party->getLongName(),
+          'name'      => utf8_encode($party->getName()),
           'logo_url'  => $party->getLogoUrl()
         );
       }
 
-      file_put_contents($cachePath, json_encode($data));
+      file_put_contents($cachePath, json_encode($data, JSON_UNESCAPED_SLASHES));
 
       return $data;
     }

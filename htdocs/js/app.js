@@ -6,12 +6,14 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     this.parties = {};
     this.smallParties = [];
     this.passesByParty = {};
+    this.winningParty = null;
     this.resultTemplate = H.compile(ResultTemplate);
     this.invalidResultTemplate = H.compile(InvalidResultTemplate);
     this.smallPartyResultTemplate = H.compile(SmallPartyResultTemplate);
 
     $('#buttons').on('click touchstart', '[data-vote]', _.bind(this._onVoteButtonClick, this));
     $('#result').on('click', '[data-action="again"]', _.bind(this._onAgainButtonClick, this));
+    $('#result').on('click', '[data-action="share"]', _.bind(this._onShareButtonClick, this));
 
     $('#result').hide();
 
@@ -31,6 +33,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.parties = {};
       this.smallParties = [];
       this.passesByParty = {};
+      this.winningParty = null;
       this.provinceChooser.reset();
 
       this.provinceChooser.$element.fadeIn(function () {
@@ -75,6 +78,11 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         this.keepCandidates(data.candidates, 5);
       }
       this.stack.setCandidates(this.candidates);
+
+      this.passes = 1;
+      this.passesByParty = {};
+      this.passesByParty[_.keys(this.parties)[0]] = 1;
+      this.displayResult();
     },
 
     keepCandidates: function (candidates, max) {
@@ -137,8 +145,9 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         '/results',
         JSON.stringify({
           result: {
-            province: this.provinceChooser.province,
-            votes:    this.votes
+            province:         this.provinceChooser.province,
+            votes:            this.votes,
+            winning_party_id: this.winningParty.id
           }
         }),
         function () {},
@@ -169,7 +178,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     },
 
     displayResult: function () {
-      if (this.passes === 0 || this.passes == this.candidates.length) {
+      if (this.passes === 0 || this.passes === this.candidates.length) {
         $('#result').html(this.invalidResultTemplate({party: null})).fadeIn(function () {
           $(this).css('display', '');
         });
@@ -179,10 +188,14 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);
         if (parties[idx] == 'small') {
+          this.winningParty = 'small';
+
           $('#result').html(this.smallPartyResultTemplate({parties: this.smallParties})).fadeIn(function () {
             $(this).css('display', '');
           });
         } else {
+          this.winningParty = parties[idx];
+
           $('#result').html(this.resultTemplate({party: parties[idx]})).fadeIn(function () {
             $(this).css('display', '');
           });
@@ -226,8 +239,34 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     },
 
     _onStackEnd: function (e) {
-      this.save();
       this.displayResult();
+      if (this.passes > 0 || this.passes < this.candidates.length) {
+        this.save();
+      }
+    },
+
+    _onShareButtonClick: function (e) {
+      if (this.winningParty == 'small') {
+        FB.ui({
+          method: 'feed',
+          name: 'Stemtinder',
+          link: 'http://stemtinder.nl',
+          caption: 'Stemtinder',
+          description: 'Ik vind de lokale partijen het aantrekkelijkst in ' + this.provinceChooser.province + ' op Stemtinder.',
+          picture: 'http://stemtinder.nl/img/stemtinder.png'
+        }, function(response){});
+      } else {
+        FB.ui({
+          method: 'feed',
+          name: 'Stemtinder',
+          link: 'http://stemtinder.nl',
+          caption: 'Stemtinder',
+          description: 'Ik vind ' + this.winningParty.name + ' de aantrekkelijkste partij van ' + this.provinceChooser.province + ' op Stemtinder.',
+          picture: 'http://stemtinder.nl' + this.winningParty.logo_url
+        }, function(response){});
+      }
+
+      return false;
     }
 
   };

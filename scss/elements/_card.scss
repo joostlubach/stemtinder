@@ -25,6 +25,8 @@ article.card {
     position: relative;
     padding-top: 100%;
 
+    background: url(../img/ajax-loader.gif) center center no-repeat;
+
     img {
       @include fill;
       @include border-radius(7px 7px 0 0);

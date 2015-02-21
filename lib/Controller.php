@@ -32,14 +32,13 @@ class Controller {
   }
 
   public function invokeAction($action, $routeParameters) {
-    header('Content-Type: application/json');
+    header('Content-Type: application/json; charset=utf-8');
 
     try {
       $parameters = array_merge($this->loadParameters(), $routeParameters);
       $result = call_user_func(array($this, $action), $parameters);
       if ($result) {
-        $json = json_encode($result);
-        echo str_replace('\\/', '/', $json);
+        echo json_encode($result, JSON_UNESCAPED_SLASHES);
       }
     } catch (HttpException $ex) {
 
