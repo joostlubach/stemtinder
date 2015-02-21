@@ -218,6 +218,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       this.stack.find('.card:last-child').widget('card').dismiss(vote);
       this.stack.nextCard();
 
+      e.preventDefault();
       return false;
     },
 
