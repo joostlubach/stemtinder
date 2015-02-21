@@ -6,7 +6,7 @@
 
   h1, h2 {
     @include flex(0 0 auto);
-    padding: $large-space 0;
+    margin-top: $large-space;
   }
   footer {
     @include flex(0 0 auto);
@@ -25,15 +25,13 @@
 
   p {
     width: 259px; height: 60px;
-    margin: $large-space auto 0;
+    margin: $large-space auto;
   }
   p.invalid {
     width: 277px; height: 194px;
-    margin: $large-space auto 0;
   }
   p.small-party {
     width: 199px; height: 51px;
-    margin-bottom: $large-space;
   }
 
   .result {
@@ -45,12 +43,13 @@
   }
 
   figure {
-    text-align: center;
+    margin-left: auto; margin-right: auto;
     width: 150px; height: 150px;
   }
 
   .small-parties {
     width: 150px; height: 150px;
+    margin-left: auto; margin-right: auto;
 
     figure {
       font-size: 6px;
@@ -83,7 +82,6 @@
 
     p {
       width: 207px; height: 48px;
-      margin: $large-space auto 0;
     }
     p.invalid {
       width: 262px; height: 184px;
@@ -107,7 +105,6 @@ html.no-flexbox #result {
 
   p {
     width: 207px; height: 48px;
-    margin: $large-space auto 0;
   }
   p.invalid {
     width: 262px; height: 184px;
