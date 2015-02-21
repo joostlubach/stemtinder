@@ -69,7 +69,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     processData: function (data) {
       this.parties = this.indexById(data.parties);
 
-      if (this.provinceChooser.province == 'Flevoland' || this.provinceChooser.province == 'Gelderland') {
+      if (this.provinceChooser.province == 'Flevoland' || this.provinceChooser.province == 'Gelderland' || this.provinceChooser.province == 'Overijssel') {
         this.keepCandidates(data.candidates, 3);
       } else {
         this.keepCandidates(data.candidates, 5);
@@ -175,7 +175,6 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         });
       } else {
         var parties = this.winningParties();
-        parties = ['small'];
 
         // Kies willekeurige winnende partij. Haha.
         var idx = Math.floor(Math.random() * parties.length);

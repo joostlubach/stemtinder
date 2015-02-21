@@ -1,5 +1,5 @@
 ({
-    baseUrl: 'js/lib',
+    baseUrl: 'htdocs/js/lib',
     urlArgs: 'v=' + (new Date().getTime()),
     deps: [
       'modernizr',
@@ -23,5 +23,5 @@
     },
 
     name: "main",
-    out: "js/main-built.js"
+    out: "htdocs/js/main-built.js"
 })

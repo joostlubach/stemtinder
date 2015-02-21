@@ -25,11 +25,10 @@
 
   p {
     width: 259px; height: 60px;
-    margin: 3 * $large-space auto 0;
+    margin: $large-space auto 0;
   }
   p.invalid {
     width: 277px; height: 194px;
-    margin: $large-space auto 0;
   }
   p.small-party {
     width: 199px; height: 51px;
