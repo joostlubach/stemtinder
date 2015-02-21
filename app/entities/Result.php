@@ -22,7 +22,7 @@ class Result {
   private $province;
 
   /**
-   * @ManyToOne(targetEntity="party")
+   * @ManyToOne(targetEntity="Party")
    * @JoinColumn(name="winning_party_id", referencedColumnName="id")
    */
   private $winningParty;
