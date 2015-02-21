@@ -8,6 +8,9 @@ class ResultsController extends Controller {
     $result = new Result();
     $result->setRemoteIp($_SERVER['REMOTE_ADDR']);
     $result->setProvince($resultParams['province']);
+    if ($resultParams['winning_party_id']) {
+      $result->setWinningParty($this->em->getReference('Party', $resultParams['winning_party_id']));
+    }
     $this->em->persist($result);
 
     foreach ($resultParams['votes'] as $candidateId => $voteString) {

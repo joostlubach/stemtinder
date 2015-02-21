@@ -74,11 +74,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     processData: function (data) {
       this.parties = this.indexById(data.parties);
 
-      if (this.provinceChooser.province == 'Flevoland' || this.provinceChooser.province == 'Gelderland' || this.provinceChooser.province == 'Overijssel') {
-        this.keepCandidates(data.candidates, 3);
-      } else {
-        this.keepCandidates(data.candidates, 5);
-      }
+      this.keepCandidates(data.candidates, 5);
       this.stack.setCandidates(this.candidates);
     },
 
@@ -144,7 +140,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
           result: {
             province:         this.provinceChooser.province,
             votes:            this.votes,
-            winning_party_id: this.winningParty.id
+            winning_party_id: this.winningParty == 'small' ? null : this.winningParty.id
           }
         }),
         function () {},
