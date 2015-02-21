@@ -35,7 +35,7 @@
   }
 
   .result {
-    margin: $large-space auto 0;
+    margin: $small-space auto 0;
   }
 
   h1, h2, p {
@@ -71,6 +71,10 @@
     height: 102px;
   }
 
+  button.share {
+    width: 180px;
+  }
+
   @include max-width(480px) {
     h1 {
       width: 267px; height: 72px;
@@ -85,6 +89,10 @@
     }
     p.invalid {
       width: 262px; height: 184px;
+    }
+
+    button.share {
+      width: 140px;
     }
 
   }
@@ -112,6 +120,10 @@ html.no-flexbox #result {
 
   footer.branding {
     width: 320px; height: 68px;
+  }
+
+  button.share {
+    width: 140px;
   }
 
 }
