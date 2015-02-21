@@ -78,11 +78,6 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
         this.keepCandidates(data.candidates, 5);
       }
       this.stack.setCandidates(this.candidates);
-
-      this.passes = 1;
-      this.passesByParty = {};
-      this.passesByParty[_.keys(this.parties)[0]] = 1;
-      this.displayResult();
     },
 
     keepCandidates: function (candidates, max) {

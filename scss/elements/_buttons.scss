@@ -11,6 +11,7 @@ button.again, button.share {
 
   color: $fg-color;
   background: none;
+  line-height: 20px;
 
   i {
     display: inline-block;
@@ -20,9 +21,9 @@ button.again, button.share {
   }
 
   i.facebook {
-    width: 24px; height: 24px;
+    width: 20px; height: 20px;
     background: url(../img/facebook.png);
-    background-size: 24px 24px;
+    background-size: 20px 20px;
   }
 
   &:active {
