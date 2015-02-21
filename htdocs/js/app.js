@@ -66,6 +66,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
 
       return $.getJSON('/candidates?province=' + province).then(function (data) {
         self.processData(data);
+        ga('send', 'screenview', {'screenName': 'Provincie: ' + province});
       });
     },
 
