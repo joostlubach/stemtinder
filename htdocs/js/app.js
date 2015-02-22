@@ -22,7 +22,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     this.provinceChooser.on('choose', _.bind(this._onProvinceChoose, this));
 
     this.stack = new Stack('#stack');
-    this.stack.on('fail pass', '.card', _.bind(this._onFailPass, this));
+    // this.stack.on('fail pass', '.card', _.bind(this._onFailPass, this));
     this.stack.on('stackend', _.bind(this._onStackEnd, this));
   };
 
@@ -47,8 +47,7 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       });
     },
 
-    vote: function (vote) {
-      var candidate = this.stack.find('.card:last-child').data('candidate');
+    vote: function (candidate, vote) {
       this.votes[candidate.id] = vote;
 
       if (vote == 'pass') {
@@ -220,10 +219,11 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
     },
 
     _onVoteButtonClick: function (e) {
-      var button = $(e.currentTarget),
-          vote   = button.attr('data-vote');
+      var button    = $(e.currentTarget),
+          vote      = button.attr('data-vote'),
+          candidate = this.stack.find('.card:last-child').data('candidate');
 
-      this.vote(vote);
+      this.vote(candidate, vote);
       this.stack.find('.card:last-child').widget('card').dismiss(vote);
       this.stack.nextCard();
 
@@ -231,9 +231,9 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
       return false;
     },
 
-    _onFailPass: function (e) {
-      this.vote(e.type);
-    },
+    // _onFailPass: function (e) {
+    //   this.vote(e.type);
+    // },
 
     _onStackEnd: function (e) {
       this.displayResult();

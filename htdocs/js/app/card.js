@@ -193,9 +193,10 @@ define(['underscore', 'app/widget'], function (_, widget) {
     },
 
     commit: function (evt) {
+      window.app.vote(this.$element.data('candidate'), evt);
+      window.app.stack.nextCard();
+
       var animation = this._createAnimation(this.dragState.x0, function () {
-        this.placeBack();
-        this.$element.trigger(evt);
         this.$element.remove();
         $('body').css('overflow', '');
       });
