@@ -28,6 +28,10 @@ define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/resul
 
   App.prototype = {
 
+    debug: function (msg) {
+      $('#dbg').html(msg);
+    },
+
     reset: function () {
       this.passes = 0;
       this.votes = {};

@@ -41,7 +41,7 @@ define(['handlebars', 'app/widget', 'text!templates/card.html'], function (H, Wi
         this.prependSlice();
       }
 
-      if (this.currentIndex == this.candidates.length) {
+      if (this.find('.card').length === 0) {
         var self = this;
         window.setTimeout(function () {
           self.$element.trigger('stackend');
