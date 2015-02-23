@@ -1,4 +1,4 @@
-define(['handlebars', 'app/widget', 'text!templates/card.html'], function (H, Widget, CardTemplate) {
+define(['jquery', 'handlebars', 'app/widget', 'text!templates/card.html'], function ($, H, Widget, CardTemplate) {
   return Widget('stack', {
 
     init: function (options) {

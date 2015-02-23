@@ -1,4 +1,4 @@
-define(['handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html', 'text!templates/small-party-result.html'], function (H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate, SmallPartyResultTemplate) {
+define(['jquery', 'handlebars', 'app/stack', 'app/province-chooser', 'text!templates/result.html', 'text!templates/invalid-result.html', 'text!templates/small-party-result.html'], function ($, H, Stack, ProvinceChooser, ResultTemplate, InvalidResultTemplate, SmallPartyResultTemplate) {
 
   var App = function () {
     this.passes = 0;

@@ -32,6 +32,15 @@ class Result {
    */
   private $votes;
 
+  /**
+   * @Column(name="created_at", type="datetime")
+   */
+  private $createdAt;
+
+  public function __construct() {
+    $this->createdAt = date_create();
+  }
+
   public function getId() {
     return $this->id;
   }
@@ -58,6 +67,10 @@ class Result {
   public function setWinningParty($value) {
     $this->winningParty = $value;
     return $this;
+  }
+
+  public function getCreatedAt() {
+    return $this->createdAt;
   }
 
 }

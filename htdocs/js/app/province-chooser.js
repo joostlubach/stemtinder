@@ -1,4 +1,4 @@
-define(['underscore', 'app/widget'], function (_, Widget) {
+define(['underscore', 'jquery', 'app/widget'], function (_, $, Widget) {
   return Widget('province-chooser', {
 
     init: function () {

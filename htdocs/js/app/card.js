@@ -1,4 +1,4 @@
-define(['underscore', 'app/widget'], function (_, widget) {
+define(['underscore', 'jquery', 'app/widget'], function (_, $, widget) {
   return widget('card', {
 
     init: function () {

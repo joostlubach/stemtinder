@@ -14,7 +14,7 @@
  *   });
  * });
  */
-define(['underscore', 'jquery.livequery'], function (_) {
+define(['underscore', 'jquery', 'jquery.livequery'], function (_, $) {
 
   // This creates a behavior runner function, which can run behaviors given any root element.
   function createRunner(selector, fn) {
