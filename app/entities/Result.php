@@ -33,7 +33,7 @@ class Result {
   private $votes;
 
   /**
-   * @Column(name="created_at", type="datetime")
+   * @Column(name="created_at", type="datetime", nullable=true)
    */
   private $createdAt;
 
@@ -71,6 +71,9 @@ class Result {
 
   public function getCreatedAt() {
     return $this->createdAt;
+  }
+  public function setCreatedAt($value) {
+    $this->createdAt = $value;
   }
 
 }

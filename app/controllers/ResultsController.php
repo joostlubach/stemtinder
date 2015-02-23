@@ -11,6 +11,7 @@ class ResultsController extends Controller {
     if ($resultParams['winning_party_id']) {
       $result->setWinningParty($this->em->getReference('Party', $resultParams['winning_party_id']));
     }
+    $result->setCreatedAt(date_create());
     $this->em->persist($result);
 
     foreach ($resultParams['votes'] as $candidateId => $voteString) {
